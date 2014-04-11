@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.hacsoft.tonedef"
+          android:versionCode="10"
+          android:versionName="10">
+
+    <uses-feature
+            android:name="android.hardware.touchscreen"
+            android:required="false"/>
+
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+
+    <application
+            android:hardwareAccelerated="true"
+            android:icon="@drawable/icon"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="stateHidden">
+        <activity
+                android:name=".MainActivity"
+                android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".DTMFActivity"/>
+        <activity android:name=".ConfigActivity"/>
+        <activity android:name=".RedBoxActivity"/>
+        <activity android:name=".BlueBoxActivity"/>
+        <activity android:name=".AboutActivity"/>
+        <activity android:name=".extras.USTonesActivity"/>
+        <activity android:name=".extras.UKTonesActivity"/>
+        <activity android:name=".extras.OtherTonesActivity"/>
+        <activity android:name=".extras.ExtrasActivity"/>
+    </application>
+
+    <uses-sdk
+            android:minSdkVersion="5"
+            android:targetSdkVersion="13"/>
+
+</manifest>

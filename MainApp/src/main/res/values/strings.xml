@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ToneDef</string>
+    <string name="version">Release 10</string>
+    <string name="about_whatsnew">What\'s New?</string>
+    <string name="about_whatsnew_text">* Paid version is now discontinued, and free version will have ads removed. Massive thanks to those who purchased the app!\n\n* ToneDef is now OPEN SOURCE! Contribute or die! :D (Skipping to Release 10 to commemorate.)\n\n* Various layout fixes\n\n* Keypad no longer automatically receives focus on touchpad screens.\n\n* Fixed some memory leaks and bugs with audio playback</string>
+    <string name="about_knownissues">Known Issues</string>
+    <string name="about_knownissues_text">* Playback on older/lower-spec devices (HTC Hero, G1, etc) is sketchy.\n\n* Slight \'clicking\' sound audible between tone and silence on some devices; possible fix forthcoming.</string>
+    <string name="skrillex">CORE</string>
+    <string name="no_contact">No phone number associated with contact.</string>
+    <string name="menu_contactlist">Use Contact Number</string>
+    <string name="menu_config">Settings</string>
+    <string name="ex_dial">Dial Tone</string>
+    <string name="ex_ringback">Ringback</string>
+    <string name="ex_euroringback">Ringback [Europe]</string>
+    <string name="ex_busy">Busy</string>
+    <string name="ex_offhook">Off-Hook</string>
+    <string name="ex_ctone">\"C-Tone\"</string>
+    <string name="dtmf">DTMF</string>
+    <string name="bluebox">Blue Box</string>
+    <string name="redbox">Red Box</string>
+    <string name="settings">CONFIG</string>
+    <string name="extras">EXTRAS</string>
+    <string name="about">ABOUT</string>
+    <string name="dialing_string_hint">Phone #</string>
+    <string name="dialing_string_wait_msg">Tap whenever you\'re ready…</string>
+    <string name="close">Close</string>
+    <string name="other_dialtone_de">Dialtone [DE]</string>
+    <string name="other_dialtone_jp">Dialtone [JP]</string>
+    <string name="other_ringback_jp">Ringback [JP]</string>
+    <string name="other_ringback_it">Ringback [IT]</string>
+    <string name="store_review_begging">If you like ToneDef, why not help me out and leave a rating on the Android Market (or your favorite app store)? :)</string>
+    <string name="OK">OK</string>
+    <string name="dial_button"> Dial </string>
+    <string name="redbox_25cents">25¢</string>
+    <string name="redbox_10cents">10¢</string>
+    <string name="redbox_5cents">5¢</string>
+    <string name="redbox_10p">10p</string>
+    <string name="redbox_50cents">50p</string>
+</resources>

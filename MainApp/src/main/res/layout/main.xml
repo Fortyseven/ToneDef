@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/root"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_weight="1"
+              android:background="@drawable/grad_grey"
+              android:orientation="vertical">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+        <ImageButton
+                android:id="@+id/menu_dtmf"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:contentDescription="DTMF Dial Pad"
+                android:onClick="clickDTMF"
+                android:scaleType="fitCenter"
+                android:src="@drawable/menu_dtmf"/>
+
+        <ImageButton
+                android:id="@+id/menu_bluebox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:contentDescription="Blue Box Dial Pad"
+                android:scaleType="fitCenter"
+                android:onClick="clickBluebox"
+                android:src="@drawable/menu_bluebox"/>
+
+        <ImageButton
+                android:id="@+id/menu_redbox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:contentDescription="Red Box Tones"
+                android:onClick="clickRedbox"
+                android:scaleType="fitCenter"
+                android:src="@drawable/menu_redbox"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+        <Button
+                android:id="@+id/menu_about"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:onClick="clickAbout"
+                android:text="@string/about"
+                android:textSize="15sp"/>
+
+        <Button
+                android:id="@+id/menu_extras"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:onClick="clickExtras"
+                android:text="@string/extras"
+                android:textSize="15sp"/>
+
+        <Button
+                android:id="@+id/menu_settings"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:onClick="clickConfig"
+                android:text="@string/settings"
+                android:textSize="15sp"/>
+    </LinearLayout>
+</LinearLayout>

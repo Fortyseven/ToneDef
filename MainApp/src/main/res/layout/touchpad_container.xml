@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/root"
+              android:focusable="true" android:focusableInTouchMode="true"
+              android:layout_weight="1"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#000000"
+              android:orientation="vertical">
+
+    <LinearLayout
+            android:id="@+id/touchpad_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"/>
+
+    <LinearLayout
+            android:id="@+id/touchpad_dialingstring"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <EditText
+                android:id="@+id/etDialingString"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="@string/dialing_string_hint"
+                android:inputType="phone"/>
+
+        <Button
+                android:id="@+id/btnDial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/touchpadbutton"
+                android:maxLines="1"
+                android:textColor="#FFFFFF"
+                android:onClick="clickDial"
+                android:text="@string/dial_button"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+    </LinearLayout>
+</LinearLayout>

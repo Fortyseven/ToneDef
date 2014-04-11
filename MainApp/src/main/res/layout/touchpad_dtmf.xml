@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/grad_gold"
+    android:orientation="vertical" >
+
+    <LinearLayout style="@style/TouchPadRow" >
+        <ImageButton android:id="@+id/dtmf1" style="@style/TouchPadButtons" android:src="@drawable/dtmf1" />
+        <ImageButton android:id="@+id/dtmf2" style="@style/TouchPadButtons" android:src="@drawable/dtmf2" />
+        <ImageButton android:id="@+id/dtmf3" style="@style/TouchPadButtons" android:src="@drawable/dtmf3" />
+        <ImageButton android:id="@+id/dtmfa" style="@style/TouchPadButtons" android:src="@drawable/dtmfa" />
+    </LinearLayout>
+    <LinearLayout style="@style/TouchPadRow" >
+        <ImageButton android:id="@+id/dtmf4" style="@style/TouchPadButtons" android:src="@drawable/dtmf4" />
+        <ImageButton android:id="@+id/dtmf5" style="@style/TouchPadButtons" android:src="@drawable/dtmf5" />
+        <ImageButton android:id="@+id/dtmf6" style="@style/TouchPadButtons" android:src="@drawable/dtmf6" />
+        <ImageButton android:id="@+id/dtmfb" style="@style/TouchPadButtons" android:src="@drawable/dtmfb" />
+    </LinearLayout>
+    <LinearLayout style="@style/TouchPadRow" >
+        <ImageButton android:id="@+id/dtmf7" style="@style/TouchPadButtons" android:src="@drawable/dtmf7" />
+        <ImageButton android:id="@+id/dtmf8" style="@style/TouchPadButtons" android:src="@drawable/dtmf8" />
+        <ImageButton android:id="@+id/dtmf9" style="@style/TouchPadButtons" android:src="@drawable/dtmf9" />
+        <ImageButton android:id="@+id/dtmfc" style="@style/TouchPadButtons" android:src="@drawable/dtmfc" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/TouchPadRow" >
+        <ImageButton android:id="@+id/dtmf_star" style="@style/TouchPadButtons" android:src="@drawable/dtmfstar" />
+        <ImageButton android:id="@+id/dtmf0" style="@style/TouchPadButtons" android:src="@drawable/dtmf0" />
+        <ImageButton android:id="@+id/dtmf_pound" style="@style/TouchPadButtons" android:src="@drawable/dtmfpound" />
+        <ImageButton android:id="@+id/dtmfd" style="@style/TouchPadButtons" android:src="@drawable/dtmfd" />
+    </LinearLayout>
+
+</LinearLayout>

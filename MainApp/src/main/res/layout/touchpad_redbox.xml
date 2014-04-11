@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/grad_red"
+              android:orientation="vertical">
+
+    <LinearLayout style="@style/TouchPadRow">
+        <Button
+                android:id="@+id/btnRB5cents"
+                style="@style/RedboxButton"
+                android:layout_weight="1"
+                android:text="@string/redbox_5cents"/>
+
+        <Button
+                android:id="@+id/btnRB10cents"
+                style="@style/RedboxButton"
+                android:layout_weight="1"
+                android:text="@string/redbox_10cents"/>
+
+        <Button
+                android:id="@+id/btnRB25cents"
+                style="@style/RedboxButton"
+                android:layout_weight="1"
+                android:text="@string/redbox_25cents"/>
+    </LinearLayout>
+
+    <LinearLayout style="@style/TouchPadRow">
+
+        <Button
+                android:id="@+id/btnRB10p"
+                style="@style/RedboxButtonUK"
+                android:layout_weight="1"
+                android:text="@string/redbox_10p"/>
+
+        <Button
+                android:id="@+id/btnRB50p"
+                style="@style/RedboxButtonUK"
+                android:layout_weight="1"
+                android:text="@string/redbox_50cents"/>
+    </LinearLayout>
+
+</LinearLayout>
