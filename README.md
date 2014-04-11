@@ -9,3 +9,5 @@ Original Google Play blurb:
 The code for ToneDef is now open source, under the GPL V2 license.  
 
 Many MANY thanks to the handful of you who picked up the ad-free version of the application.
+
+Latest official build available on Google Play: https://play.google.com/store/apps/details?id=com.bytestemplar.tonedef
