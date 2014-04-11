@@ -17,10 +17,11 @@ package com.bytestemplar.tonedef;
 import android.os.Bundle;
 
 import com.bytestemplar.tonedef.tones.ToneBankBlueBox;
-import com.bytestemplar.tonedef.touchpads.ToneButtonList;
+import com.bytestemplar.tonedef.touchpad.ToneButtonList;
+import com.bytestemplar.tonedef.touchpad.TouchPadActivity;
 import com.bytestemplar.tonedef.utils.Alert;
 
-public class BlueBoxActivity extends com.bytestemplar.tonedef.TouchPadActivity
+public class BlueBoxActivity extends TouchPadActivity
 {
     private static final String PREF_BLU_MARK  = "bluebox_digitdur";
     private static final String PREF_BLU_SPACE = "bluebox_dialdelay";

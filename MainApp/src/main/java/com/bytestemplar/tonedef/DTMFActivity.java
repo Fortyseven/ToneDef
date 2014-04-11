@@ -18,7 +18,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.bytestemplar.tonedef.tones.ToneBankDTMF;
-import com.bytestemplar.tonedef.touchpads.ToneButtonList;
+import com.bytestemplar.tonedef.touchpad.ToneButtonList;
+import com.bytestemplar.tonedef.touchpad.TouchPadActivity;
 import com.bytestemplar.tonedef.utils.Alert;
 
 public class DTMFActivity extends TouchPadActivity

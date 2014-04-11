@@ -17,7 +17,8 @@ package com.bytestemplar.tonedef;
 import android.os.Bundle;
 
 import com.bytestemplar.tonedef.tones.ToneBankRedBox;
-import com.bytestemplar.tonedef.touchpads.ToneButtonList;
+import com.bytestemplar.tonedef.touchpad.ToneButtonList;
+import com.bytestemplar.tonedef.touchpad.TouchPadActivity;
 import com.bytestemplar.tonedef.utils.Alert;
 
 public class RedBoxActivity extends TouchPadActivity
