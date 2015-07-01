@@ -3,7 +3,7 @@
     <string name="app_name">ToneDef</string>
     <string name="version">Release 11</string>
     <string name="about_whatsnew">What\'s New?</string>
-    <string name="about_whatsnew_text">TBA</string>
+    <string name="about_whatsnew_text">FIXME</string>
     <string name="about_knownissues">Known Issues</string>
         <string name="about_knownissues_text">
             * Playback on older/lower-spec devices (HTC Hero, G1, etc) is sketchy.\n\n
@@ -40,4 +40,6 @@
     <string name="redbox_5cents">5¢</string>
     <string name="redbox_10p">10p</string>
     <string name="redbox_50cents">50p</string>
+    <string name="dial_contact">Dial Contact</string>
+    <string name="settings_full">Settings</string>
 </resources>

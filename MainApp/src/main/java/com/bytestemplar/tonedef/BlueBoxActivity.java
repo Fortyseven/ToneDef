@@ -38,7 +38,7 @@ public class BlueBoxActivity extends TouchPadActivity
         setToneBank( new ToneBankBlueBox( this ) );
         setTouchPadLayoutId( R.layout.touchpad_bluebox );
 
-        if ( mPrefs.contains( PREF_WHITE ) ) {
+        if ( _preferences.contains( PREF_WHITE ) ) {
             invertKeypadAssets();
         }
 

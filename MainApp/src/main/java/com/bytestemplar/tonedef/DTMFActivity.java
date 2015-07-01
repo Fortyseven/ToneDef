@@ -59,7 +59,7 @@ public class DTMFActivity extends TouchPadActivity
 
     private void handleExtendedDTMFButtons()
     {
-        if ( mPrefs.getBoolean( PREF_EXTDTMF, false ) ) {
+        if ( _preferences.getBoolean( PREF_EXTDTMF, false ) ) {
             findViewById( R.id.dtmfa ).setVisibility( View.VISIBLE );
             findViewById( R.id.dtmfb ).setVisibility( View.VISIBLE );
             findViewById( R.id.dtmfc ).setVisibility( View.VISIBLE );
