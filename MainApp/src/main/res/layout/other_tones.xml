@@ -1,32 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:fadeScrollbars="false"
-        android:fillViewport="true"
-        android:scrollbarAlwaysDrawVerticalTrack="true"
-        android:scrollbarStyle="insideInset"
-        android:background="@drawable/grad_green"
-        android:scrollbars="vertical">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:background="@drawable/grad_green"
+    android:fadeScrollbars="false"
+    android:fillViewport="true"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:scrollbarStyle="insideInset"
+    android:scrollbars="vertical">
 
     <LinearLayout
-            android:id="@+id/root"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <!-- DE DIALTONE -->
 
         <LinearLayout style="@style/ExtraButtonsLayout">
 
             <Button
-                    android:id="@+id/btnDEDialtone" style="@style/ExtraButton" android:text="@string/other_dialtone_de" android:textSize="14sp"/>
+                android:id="@+id/btnDEDialtone"
+                style="@style/ExtraButton"
+                android:text="@string/other_dialtone_de"
+                android:textSize="14sp" />
 
             <Button
-                    android:id="@+id/btnDEDialtoneAbout" style="@style/ExtraButtonAbout"/>
+                android:id="@+id/btnDEDialtoneAbout"
+                style="@style/ExtraButtonAbout" />
         </LinearLayout>
 
         <!-- JP DIALTONE -->
@@ -34,10 +37,14 @@
         <LinearLayout style="@style/ExtraButtonsLayout">
 
             <Button
-                    android:id="@+id/btnJPDialtone" style="@style/ExtraButton" android:text="@string/other_dialtone_jp" android:textSize="14sp"/>
+                android:id="@+id/btnJPDialtone"
+                style="@style/ExtraButton"
+                android:text="@string/other_dialtone_jp"
+                android:textSize="14sp" />
 
             <Button
-                    android:id="@+id/btnJPDialtoneAbout" style="@style/ExtraButtonAbout"/>
+                android:id="@+id/btnJPDialtoneAbout"
+                style="@style/ExtraButtonAbout" />
         </LinearLayout>
 
         <!-- JP RINGBACK -->
@@ -45,10 +52,14 @@
         <LinearLayout style="@style/ExtraButtonsLayout">
 
             <Button
-                    android:id="@+id/btnJPRingback" style="@style/ExtraButton" android:text="@string/other_ringback_jp" android:textSize="14sp"/>
+                android:id="@+id/btnJPRingback"
+                style="@style/ExtraButton"
+                android:text="@string/other_ringback_jp"
+                android:textSize="14sp" />
 
             <Button
-                    android:id="@+id/btnJPRingbackAbout" style="@style/ExtraButtonAbout"/>
+                android:id="@+id/btnJPRingbackAbout"
+                style="@style/ExtraButtonAbout" />
         </LinearLayout>
 
         <!-- ITALIAN RINGBACK -->
@@ -56,10 +67,14 @@
         <LinearLayout style="@style/ExtraButtonsLayout">
 
             <Button
-                    android:id="@+id/btnITDialtone" style="@style/ExtraButton" android:text="@string/other_ringback_it" android:textSize="14sp"/>
+                android:id="@+id/btnITDialtone"
+                style="@style/ExtraButton"
+                android:text="@string/other_ringback_it"
+                android:textSize="14sp" />
 
             <Button
-                    android:id="@+id/btnITDialtoneAbout" style="@style/ExtraButtonAbout"/>
+                android:id="@+id/btnITDialtoneAbout"
+                style="@style/ExtraButtonAbout" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

@@ -42,4 +42,7 @@
     <string name="redbox_50cents">50p</string>
     <string name="dial_contact">Dial Contact</string>
     <string name="settings_full">Settings</string>
+    <string name="desc_ringboxtones">Red Box Tones</string>
+    <string name="desc_blueboxdialpad">Blue Box Dial Pad</string>
+    <string name="desc_dtmf_dialpad">DTMF Dial Pad</string>
 </resources>
