@@ -3,7 +3,10 @@
     <string name="app_name">ToneDef</string>
     <string name="version">Release 11</string>
     <string name="about_whatsnew">What\'s New?</string>
-    <string name="about_whatsnew_text">FIXME</string>
+    <string name="about_whatsnew_text">
+        - Settings now accessible from keypad screens\n\n
+        - Assorted minor optimizations and compatibility updates\n\n
+    </string>
     <string name="about_knownissues">Known Issues</string>
         <string name="about_knownissues_text">
             * Playback on older/lower-spec devices (HTC Hero, G1, etc) is sketchy.\n\n
