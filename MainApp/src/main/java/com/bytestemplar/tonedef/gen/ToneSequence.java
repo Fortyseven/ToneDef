@@ -41,7 +41,7 @@ public class ToneSequence implements Runnable
 
     public static boolean WAIT_FOR_USER = false;
 
-    private class Segment
+    private static class Segment
     {
         Sine sine_gen[];
         int  duration;
