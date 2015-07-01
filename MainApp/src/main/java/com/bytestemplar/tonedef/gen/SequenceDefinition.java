@@ -24,7 +24,7 @@ public class SequenceDefinition
 
     public interface Command
     {
-        public void execute();
+        void execute();
     }
 
     /**
@@ -43,7 +43,7 @@ public class SequenceDefinition
      * If invoked with a Command object, will execute a user-supplied function instead of
      * playing a tone.  Used in ToneBankRedBox for one-shot keys.
      *
-     * @param cmd
+     * @param cmd Command object to invoke instead of tone
      */
     public SequenceDefinition(Command cmd)
     {

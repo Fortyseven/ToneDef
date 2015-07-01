@@ -70,7 +70,7 @@ public class ToneSequence implements Runnable
     {
         _parent_activity = activity;
 
-        _segments = new ArrayList<ToneSequence.Segment>();
+        _segments = new ArrayList<>();
 
         _total_samples = 0;
 
@@ -105,9 +105,8 @@ public class ToneSequence implements Runnable
         }
     }
 
-    /***
-     *
-     * @param iterations
+    /**
+     * @param iterations Number of times this should be played
      */
     public synchronized void setIterations(int iterations)
     {

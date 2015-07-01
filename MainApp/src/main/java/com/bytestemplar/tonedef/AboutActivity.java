@@ -1,16 +1,18 @@
-/*******************************************************************************
+/**
+ * ****************************************************************************
  * ________                 ____       ____
  * _/_  __/___  ____  ___  / __ \___  / __/
  * __/ / / __ \/ __ \/ _ \/ / / / _ \/ /_
  * _/ / / /_/ / / / /  __/ /_/ /  __/ __/
  * /_/  \____/_/ /_/\___/_____/\___/_/
- *
+ * <p/>
  * Copyright (c) 2015 Bytes Templar
  * http://BytesTemplar.com/
- *
+ * <p/>
  * Refer to the license.txt file included for license information.
  * If it is missing, contact fortyseven@gmail.com for details.
- ******************************************************************************/
+ * ****************************************************************************
+ */
 
 package com.bytestemplar.tonedef;
 
@@ -26,22 +28,22 @@ public class AboutActivity extends Activity
 {
 //    private Typeface ttf_dxb;
 
-    @Override
-    protected void onCreate( Bundle savedInstanceState )
-    {
-        super.onCreate( savedInstanceState );
-        this.setContentView( R.layout.about );
+        @Override
+        protected void onCreate(Bundle savedInstanceState)
+        {
+                super.onCreate(savedInstanceState);
+                this.setContentView(R.layout.about);
 
-        UICustom.getInstance().updateActivity( this );
-    }
+                UICustom.getInstance().updateActivity(this);
+        }
 
-    public void clickGitHub( View view )
-    {
-        startActivity( new Intent( Intent.ACTION_VIEW, Uri.parse( "https://github.com/Fortyseven/ToneDef" ) ) );
-    }
+        public void clickGitHub(View view)
+        {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Fortyseven/ToneDef")));
+        }
 
-    public void clickClose( View view )
-    {
-        finish();
-    }
+        public void clickClose(View view)
+        {
+                finish();
+        }
 }
