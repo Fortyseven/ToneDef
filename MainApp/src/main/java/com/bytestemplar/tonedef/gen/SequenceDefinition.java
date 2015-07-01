@@ -33,10 +33,10 @@ public class SequenceDefinition
      * @param duration    How long this tone will be played for in dialing sequences, in milliseconds.
      * @param frequencies Frequencies of the tone, in hz. (Variable number of arguments.)
      */
-    public SequenceDefinition(int duration, int... frequencies)
+    public SequenceDefinition( int duration, int... frequencies )
     {
-        setDuration(duration);
-        setFrequencies(frequencies);
+        setDuration( duration );
+        setFrequencies( frequencies );
     }
 
     /**
@@ -45,7 +45,7 @@ public class SequenceDefinition
      *
      * @param cmd Command object to invoke instead of tone
      */
-    public SequenceDefinition(Command cmd)
+    public SequenceDefinition( Command cmd )
     {
         _cmd = cmd;
     }
@@ -74,7 +74,7 @@ public class SequenceDefinition
      *
      * @param duration Time in milliseconds
      */
-    public void setDuration(int duration)
+    public void setDuration( int duration )
     {
         this._duration = duration;
     }
@@ -94,7 +94,7 @@ public class SequenceDefinition
      *
      * @param m_frequencies An array of integers representing tones in Hz.
      */
-    public void setFrequencies(int[] m_frequencies)
+    public void setFrequencies( int[] m_frequencies )
     {
         this._frequencies = m_frequencies;
     }
@@ -106,6 +106,6 @@ public class SequenceDefinition
      */
     public boolean isCommand()
     {
-        return (_cmd != null);
+        return ( _cmd != null );
     }
 }

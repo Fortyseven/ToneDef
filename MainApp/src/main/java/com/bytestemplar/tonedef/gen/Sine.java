@@ -21,9 +21,9 @@ public class Sine
     float _increment;
     float _angle;
 
-    public Sine(int freq)
+    public Sine( int freq )
     {
-        this._increment = (float) (2 * Math.PI) * freq / 44100;
+        this._increment = (float) ( 2 * Math.PI ) * freq / 44100;
         this.reset();
     }
 
@@ -35,6 +35,6 @@ public class Sine
     public float getNextSample()
     {
         this._angle += this._increment;
-        return ((float) Math.sin(this._angle));
+        return ( (float) Math.sin( this._angle ) );
     }
 }

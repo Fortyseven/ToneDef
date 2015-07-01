@@ -66,7 +66,7 @@ public class ToneSequence implements Runnable
 
     private Activity _parent_activity = null;
 
-    public ToneSequence(Activity activity)
+    public ToneSequence( Activity activity )
     {
         _parent_activity = activity;
 
@@ -76,39 +76,39 @@ public class ToneSequence implements Runnable
 
         resetFlags();
 
-        setDescription("");
-        setIterations(-1);
+        setDescription( "" );
+        setIterations( -1 );
     }
 
     private synchronized void initAudioTrack() throws Exception
     {
         try {
-            _buffer_size = AudioTrack.getMinBufferSize(SAMPLE_RATE,
-                                                       AudioFormat.CHANNEL_OUT_MONO,
-                                                       AudioFormat.ENCODING_PCM_16BIT);
+            _buffer_size = AudioTrack.getMinBufferSize( SAMPLE_RATE,
+                                                        AudioFormat.CHANNEL_OUT_MONO,
+                                                        AudioFormat.ENCODING_PCM_16BIT );
 
             _buffer = new short[_buffer_size];
 
-            _track = new AudioTrack(AudioManager.STREAM_MUSIC,
-                                    SAMPLE_RATE,
-                                    AudioFormat.CHANNEL_OUT_MONO,
-                                    AudioFormat.ENCODING_PCM_16BIT,
-                                    _buffer_size,
-                                    AudioTrack.MODE_STREAM);
+            _track = new AudioTrack( AudioManager.STREAM_MUSIC,
+                                     SAMPLE_RATE,
+                                     AudioFormat.CHANNEL_OUT_MONO,
+                                     AudioFormat.ENCODING_PCM_16BIT,
+                                     _buffer_size,
+                                     AudioTrack.MODE_STREAM );
         }
-        catch (Exception e) {
-            Log.e(TAG, LOGPREFIX + "Error creating AudioTrack: " + e.getMessage());
+        catch ( Exception e ) {
+            Log.e( TAG, LOGPREFIX + "Error creating AudioTrack: " + e.getMessage() );
         }
 
-        if (_track == null) {
-            throw new Exception("Error allocating AudioTrack...wtf?");
+        if ( _track == null ) {
+            throw new Exception( "Error allocating AudioTrack...wtf?" );
         }
     }
 
     /**
      * @param iterations Number of times this should be played
      */
-    public synchronized void setIterations(int iterations)
+    public synchronized void setIterations( int iterations )
     {
         _iterations = iterations;
         _cur_iteration = 0;
@@ -123,28 +123,28 @@ public class ToneSequence implements Runnable
      * @param frequencies A varargs list of int frequencies to play
      *                    simultaneously.
      */
-    public synchronized void addSegment(int duration, int... frequencies)
+    public synchronized void addSegment( int duration, int... frequencies )
     {
         Segment seg = new Segment();
 
         seg.sine_gen = new Sine[frequencies.length];
-        for (int i = 0; i < frequencies.length; i++) {
-            seg.sine_gen[i] = new Sine(frequencies[i]);
+        for ( int i = 0; i < frequencies.length; i++ ) {
+            seg.sine_gen[i] = new Sine( frequencies[i] );
         }
 
         seg.duration = duration;
 
-        _total_samples += ((SAMPLE_RATE / 1000) * seg.duration);
+        _total_samples += ( ( SAMPLE_RATE / 1000 ) * seg.duration );
         seg.bookmark = _total_samples;
         //m_frequencies = frequencies;
-        _segments.add(seg);
+        _segments.add( seg );
     }
 
     public synchronized void addUserWaitSegment()
     {
         Segment seg = new Segment();
         seg.special_waitforuser = true;
-        _segments.add(seg);
+        _segments.add( seg );
     }
 
     /**
@@ -153,10 +153,10 @@ public class ToneSequence implements Runnable
      *
      * @param sequence A SequenceDefinition object.
      */
-    public synchronized void addSegment(SequenceDefinition sequence)
+    public synchronized void addSegment( SequenceDefinition sequence )
     {
-        if (!sequence.isCommand()) {
-            addSegment(sequence.getDuration(), sequence.getFrequencies());
+        if ( !sequence.isCommand() ) {
+            addSegment( sequence.getDuration(), sequence.getFrequencies() );
         }
     }
 
@@ -164,18 +164,18 @@ public class ToneSequence implements Runnable
      * @param buffer      Array for audio samples.
      * @param num_samples Number of samples to retrieve.
      */
-    public synchronized boolean getSamples(float[] buffer, int num_samples)
+    public synchronized boolean getSamples( float[] buffer, int num_samples )
     {
-        for (int i = 0; i < buffer.length; i++) {
+        for ( int i = 0; i < buffer.length; i++ ) {
             buffer[i] = 0;
         }
 
-        Segment segment = _segments.get(_cur_segment);
+        Segment segment = _segments.get( _cur_segment );
 
-        for (int s = 0; s < num_samples; s++) {
+        for ( int s = 0; s < num_samples; s++ ) {
             float sample = 0;
 
-            for (int mf = 0; mf < segment.sine_gen.length; mf++) {
+            for ( int mf = 0; mf < segment.sine_gen.length; mf++ ) {
                 sample += segment.sine_gen[mf].getNextSample();
             }
 
@@ -185,62 +185,62 @@ public class ToneSequence implements Runnable
 
             buffer[s] = sample;
 
-            if (_cursor_sample >= segment.bookmark) {
+            if ( _cursor_sample >= segment.bookmark ) {
                 _cur_segment++;
 
-                if (_cur_segment >= _segments.size()) {
+                if ( _cur_segment >= _segments.size() ) {
                     _cur_segment = 0;
                     _cursor_sample = 0;
 
                     // are we supposed to run only x times,
                     // or forever?
 
-                    if (_iterations >= 0) {
+                    if ( _iterations >= 0 ) {
                         _cur_iteration++;
-                        if (_cur_iteration >= _iterations) {
+                        if ( _cur_iteration >= _iterations ) {
                             _thread.interrupt();
                             return true;
                         }
                     }
                 }
 
-                if (_segments.get(_cur_segment).special_waitforuser) {
+                if ( _segments.get( _cur_segment ).special_waitforuser ) {
                     ToneSequence.WAIT_FOR_USER = true;
                     _cur_segment++;
 
-                    _parent_activity.runOnUiThread(new Runnable()
+                    _parent_activity.runOnUiThread( new Runnable()
                     {
 
                         @Override
                         public void run()
                         {
-                            Alert.show(_parent_activity,
-                                       "Waiting",
-                                       _parent_activity.getString(R.string.dialing_string_wait_msg),
-                                       -1,
-                                       new Alert.OnClick()
-                                       {
+                            Alert.show( _parent_activity,
+                                        "Waiting",
+                                        _parent_activity.getString( R.string.dialing_string_wait_msg ),
+                                        -1,
+                                        new Alert.OnClick()
+                                        {
 
-                                           @Override
-                                           public void action(Context context)
-                                           {
-                                               ToneSequence.WAIT_FOR_USER = false;
-                                           }
-                                       });
+                                            @Override
+                                            public void action( Context context )
+                                            {
+                                                ToneSequence.WAIT_FOR_USER = false;
+                                            }
+                                        } );
                         }
 
-                    });
+                    } );
 
-                    while (ToneSequence.WAIT_FOR_USER) {
+                    while ( ToneSequence.WAIT_FOR_USER ) {
                         try {
-                            Thread.sleep(100);
+                            Thread.sleep( 100 );
                         }
-                        catch (InterruptedException e) {
+                        catch ( InterruptedException e ) {
                             return true;
                         }
                     }
 
-                    if (_cur_segment >= _segments.size()) {
+                    if ( _cur_segment >= _segments.size() ) {
 
                         _cur_segment = 0;
                         _cursor_sample = 0;
@@ -251,7 +251,7 @@ public class ToneSequence implements Runnable
 
                 }
 
-                segment = _segments.get(_cur_segment);
+                segment = _segments.get( _cur_segment );
             } // if _cursor_sample >= segment.bookmark
         }
         return false;
@@ -259,28 +259,28 @@ public class ToneSequence implements Runnable
 
     public synchronized void start()
     {
-        if (_is_playing) {
+        if ( _is_playing ) {
             stop();
         }
 
         try {
             initAudioTrack();
         }
-        catch (Exception e2) {
-            Log.e(TAG, LOGPREFIX + "AudioTrack not created...wtf?  Not creating thread.");
+        catch ( Exception e2 ) {
+            Log.e( TAG, LOGPREFIX + "AudioTrack not created...wtf?  Not creating thread." );
             return;
         }
 
         _track.play();
 
-        _thread = new Thread(this);
+        _thread = new Thread( this );
 
         _thread.start();
     }
 
     public synchronized void stop()
     {
-        if (_thread == null) {
+        if ( _thread == null ) {
             return;
         }
 
@@ -311,7 +311,7 @@ public class ToneSequence implements Runnable
     /**
      * @param text Text to describe sequence.
      */
-    public synchronized void setDescription(String text)
+    public synchronized void setDescription( String text )
     {
         _description = text.trim();
     }
@@ -323,34 +323,34 @@ public class ToneSequence implements Runnable
         boolean was_interrupted = false;
         _is_playing = true;
 
-        while (!was_interrupted) {
+        while ( !was_interrupted ) {
             try {
                 // fetch next bunch of samples, shove them into 'samples'
-                getSamples(samples, _buffer_size);
+                getSamples( samples, _buffer_size );
 
-                if (_buffer.length < _buffer_size) {
+                if ( _buffer.length < _buffer_size ) {
                     _buffer = new short[_buffer_size];
                 }
 
-                for (int i = 0; i < _buffer_size; i++) {
-                    _buffer[i] = (short) (samples[i] * Short.MAX_VALUE);
+                for ( int i = 0; i < _buffer_size; i++ ) {
+                    _buffer[i] = (short) ( samples[i] * Short.MAX_VALUE );
                 }
 
-                if (_track != null) {
-                    _track.write(_buffer, 0, _buffer_size);
+                if ( _track != null ) {
+                    _track.write( _buffer, 0, _buffer_size );
                 }
             }
-            catch (Exception e) {
+            catch ( Exception e ) {
                 was_interrupted = true;
-                Log.e(TAG, LOGPREFIX + "Error while playing back: " + e.toString());
+                Log.e( TAG, LOGPREFIX + "Error while playing back: " + e.toString() );
             }
 
-            if (Thread.interrupted()) {
+            if ( Thread.interrupted() ) {
                 was_interrupted = true;
             }
         }
 
-        if (_track != null) {
+        if ( _track != null ) {
             _track.release();
         }
 
