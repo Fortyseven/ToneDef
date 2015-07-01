@@ -45,4 +45,5 @@
     <string name="desc_ringboxtones">Red Box Tones</string>
     <string name="desc_blueboxdialpad">Blue Box Dial Pad</string>
     <string name="desc_dtmf_dialpad">DTMF Dial Pad</string>
+    <string name="github_forkme">Fork Me!</string>
 </resources>

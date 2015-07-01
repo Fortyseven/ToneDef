@@ -1,4 +1,5 @@
-/*******************************************************************************
+/**
+ * ****************************************************************************
  * ________                 ____       ____
  * _/_  __/___  ____  ___  / __ \___  / __/
  * __/ / / __ \/ __ \/ _ \/ / / / _ \/ /_
@@ -10,7 +11,8 @@
  *
  * Refer to the license.txt file included for license information.
  * If it is missing, contact fortyseven@gmail.com for details.
- ******************************************************************************/
+ * ****************************************************************************
+ */
 
 package com.bytestemplar.tonedef;
 
@@ -50,7 +52,8 @@ public class MainActivity extends Activity
         // that has the changelog and such.
 
         if ( prefs.contains( PREF_LASTVER ) ) {
-            if ( prefs.getString( PREF_LASTVER, null ).contentEquals( getString( R.string.version ) ) ) {
+            if ( prefs.getString( PREF_LASTVER, null )
+                      .contentEquals( getString( R.string.version ) ) ) {
                 // Already showed the box (version last shown == // current version)
                 return;
             }
