@@ -1,16 +1,18 @@
-/*******************************************************************************
+/**
+ * ****************************************************************************
  * ________                 ____       ____
  * _/_  __/___  ____  ___  / __ \___  / __/
  * __/ / / __ \/ __ \/ _ \/ / / / _ \/ /_
  * _/ / / /_/ / / / /  __/ /_/ /  __/ __/
  * /_/  \____/_/ /_/\___/_____/\___/_/
- *
+ * <p/>
  * Copyright (c) 2015 Bytes Templar
  * http://BytesTemplar.com/
- *
+ * <p/>
  * Refer to the license.txt file included for license information.
  * If it is missing, contact fortyseven@gmail.com for details.
- ******************************************************************************/
+ * ****************************************************************************
+ */
 
 package com.bytestemplar.tonedef.gen;
 
@@ -48,307 +50,311 @@ public class ToneSequence implements Runnable
         boolean special_waitforuser = false;
     }
 
-    private final List<Segment> mSegments;
-    private       int           mCurSegment;
-    private       int           mTotalSamples;
-    private       int           mCursorSample;
-    private       int           mBufferSize;
-    private       short[]       mBuffer;
-    private       AudioTrack    mTrack;
-    private       Thread        mThread;
-    private       boolean       mIsplaying;
-    private       String        mDescription;
+    private final List<Segment> _segments;
+    private       int           _cur_segment;
+    private       int           _total_samples;
+    private       int           _cursor_sample;
+    private       int           _buffer_size;
+    private       short[]       _buffer;
+    private       AudioTrack    _track;
+    private       Thread        _thread;
+    private       boolean       _is_playing;
+    private       String        _description;
 
-    private int mIterations;
-    private int mCurIteration;
+    private int _iterations;
+    private int _cur_iteration;
 
-    private Activity mParentActivity = null;
+    private Activity _parent_activity = null;
 
-    public ToneSequence( Activity activity )
+    public ToneSequence(Activity activity)
     {
-        mParentActivity = activity;
+        _parent_activity = activity;
 
-        mSegments = new ArrayList<ToneSequence.Segment>();
+        _segments = new ArrayList<ToneSequence.Segment>();
 
-        mTotalSamples = 0;
+        _total_samples = 0;
 
         resetFlags();
 
-        setDescription( "" );
-        setIterations( -1 );
+        setDescription("");
+        setIterations(-1);
     }
 
     private synchronized void initAudioTrack() throws Exception
     {
         try {
-            mBufferSize = AudioTrack.getMinBufferSize( SAMPLE_RATE, AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_16BIT );
+            _buffer_size = AudioTrack.getMinBufferSize(SAMPLE_RATE,
+                                                       AudioFormat.CHANNEL_OUT_MONO,
+                                                       AudioFormat.ENCODING_PCM_16BIT);
 
-            mBuffer = new short[mBufferSize];
+            _buffer = new short[_buffer_size];
 
-            mTrack = new AudioTrack( AudioManager.STREAM_MUSIC, SAMPLE_RATE, AudioFormat.CHANNEL_OUT_MONO,
-                                     AudioFormat.ENCODING_PCM_16BIT, mBufferSize, AudioTrack.MODE_STREAM );
+            _track = new AudioTrack(AudioManager.STREAM_MUSIC,
+                                    SAMPLE_RATE,
+                                    AudioFormat.CHANNEL_OUT_MONO,
+                                    AudioFormat.ENCODING_PCM_16BIT,
+                                    _buffer_size,
+                                    AudioTrack.MODE_STREAM);
         }
-        catch ( Exception e ) {
-            Log.e( TAG, LOGPREFIX + "Error creating AudioTrack: " + e.getMessage() );
+        catch (Exception e) {
+            Log.e(TAG, LOGPREFIX + "Error creating AudioTrack: " + e.getMessage());
         }
 
-        if ( mTrack == null ) {
-            throw new Exception( "Error allocating AudioTrack...wtf?" );
+        if (_track == null) {
+            throw new Exception("Error allocating AudioTrack...wtf?");
         }
     }
 
-    public synchronized void setIterations( int iterations )
+    /***
+     *
+     * @param iterations
+     */
+    public synchronized void setIterations(int iterations)
     {
-        mIterations = iterations;
-        mCurIteration = 0;
+        _iterations = iterations;
+        _cur_iteration = 0;
     }
 
     /**
      * Defines a segment of an overall sequence. Sequences are iterated
      * through over the lifetime of the playback.
      *
-     * @param duration
-     *         Length of time the current sequence of tones should
-     *         play.
-     * @param frequencies
-     *         A varargs list of int frequencies to play
-     *         simultaneously.
+     * @param duration    Length of time the current sequence of tones should
+     *                    play.
+     * @param frequencies A varargs list of int frequencies to play
+     *                    simultaneously.
      */
-    public synchronized void addSegment( int duration, int... frequencies )
+    public synchronized void addSegment(int duration, int... frequencies)
     {
         Segment seg = new Segment();
 
         seg.sine_gen = new Sine[frequencies.length];
-        for ( int i = 0; i < frequencies.length; i++ ) {
-            seg.sine_gen[i] = new Sine( frequencies[i] );
+        for (int i = 0; i < frequencies.length; i++) {
+            seg.sine_gen[i] = new Sine(frequencies[i]);
         }
 
         seg.duration = duration;
 
-        mTotalSamples += ( ( SAMPLE_RATE / 1000 ) * seg.duration );
-        seg.bookmark = mTotalSamples;
+        _total_samples += ((SAMPLE_RATE / 1000) * seg.duration);
+        seg.bookmark = _total_samples;
         //m_frequencies = frequencies;
-        mSegments.add( seg );
+        _segments.add(seg);
     }
 
     public synchronized void addUserWaitSegment()
     {
         Segment seg = new Segment();
         seg.special_waitforuser = true;
-        mSegments.add( seg );
+        _segments.add(seg);
     }
 
     /**
      * Defines a segment of an overall sequence. Sequences are iterated
      * through over the lifetime of the playback.
      *
-     * @param sequence
-     *         A SequenceDefinition object.
+     * @param sequence A SequenceDefinition object.
      */
-    public synchronized void addSegment( SequenceDefinition sequence )
+    public synchronized void addSegment(SequenceDefinition sequence)
     {
-        if ( !sequence.isCommand() ) {
-            addSegment( sequence.getDuration(), sequence.getFrequencies() );
+        if (!sequence.isCommand()) {
+            addSegment(sequence.getDuration(), sequence.getFrequencies());
         }
     }
 
     /**
-     * @param buffer
-     *         Array for audio samples.
-     * @param num_samples
-     *         Number of samples to retrieve.
+     * @param buffer      Array for audio samples.
+     * @param num_samples Number of samples to retrieve.
      */
-    public synchronized boolean getSamples( float[] buffer, int num_samples )
+    public synchronized boolean getSamples(float[] buffer, int num_samples)
     {
-        for ( int i = 0; i < buffer.length; i++ ) {
+        for (int i = 0; i < buffer.length; i++) {
             buffer[i] = 0;
         }
 
-        Segment segment = mSegments.get( mCurSegment );
+        Segment segment = _segments.get(_cur_segment);
 
-        for ( int s = 0; s < num_samples; s++ ) {
+        for (int s = 0; s < num_samples; s++) {
             float sample = 0;
 
-            for ( int mf = 0; mf < segment.sine_gen.length; mf++ ) {
+            for (int mf = 0; mf < segment.sine_gen.length; mf++) {
                 sample += segment.sine_gen[mf].getNextSample();
             }
 
-            mCursorSample++;
+            _cursor_sample++;
 
             sample /= segment.sine_gen.length;
 
             buffer[s] = sample;
 
-            if ( mCursorSample >= segment.bookmark ) {
-                mCurSegment++;
+            if (_cursor_sample >= segment.bookmark) {
+                _cur_segment++;
 
-                if ( mCurSegment >= mSegments.size() ) {
-                    mCurSegment = 0;
-                    mCursorSample = 0;
+                if (_cur_segment >= _segments.size()) {
+                    _cur_segment = 0;
+                    _cursor_sample = 0;
 
                     // are we supposed to run only x times,
                     // or forever?
 
-                    if ( mIterations >= 0 ) {
-                        mCurIteration++;
-                        if ( mCurIteration >= mIterations ) {
-                            mThread.interrupt();
+                    if (_iterations >= 0) {
+                        _cur_iteration++;
+                        if (_cur_iteration >= _iterations) {
+                            _thread.interrupt();
                             return true;
                         }
                     }
                 }
 
-                if ( mSegments.get( mCurSegment ).special_waitforuser ) {
+                if (_segments.get(_cur_segment).special_waitforuser) {
                     ToneSequence.WAIT_FOR_USER = true;
-                    mCurSegment++;
+                    _cur_segment++;
 
-                    mParentActivity.runOnUiThread( new Runnable()
+                    _parent_activity.runOnUiThread(new Runnable()
                     {
 
                         @Override
                         public void run()
                         {
-                            Alert.show( mParentActivity, "Waiting", mParentActivity.getString( R.string.dialing_string_wait_msg ), -1, new Alert.OnClick()
-                            {
+                            Alert.show(_parent_activity,
+                                       "Waiting",
+                                       _parent_activity.getString(R.string.dialing_string_wait_msg),
+                                       -1,
+                                       new Alert.OnClick()
+                                       {
 
-                                @Override
-                                public void action( Context context )
-                                {
-                                    ToneSequence.WAIT_FOR_USER = false;
-                                }
-                            } );
+                                           @Override
+                                           public void action(Context context)
+                                           {
+                                               ToneSequence.WAIT_FOR_USER = false;
+                                           }
+                                       });
                         }
 
-                    } );
+                    });
 
-                    while ( ToneSequence.WAIT_FOR_USER ) {
+                    while (ToneSequence.WAIT_FOR_USER) {
                         try {
-                            Thread.sleep( 100 );
+                            Thread.sleep(100);
                         }
-                        catch ( InterruptedException e ) {
+                        catch (InterruptedException e) {
                             return true;
                         }
                     }
 
-                    if ( mCurSegment >= mSegments.size() ) {
-                        mCurSegment = 0;
-                        mCursorSample = 0;
-                        mThread.interrupt();
+                    if (_cur_segment >= _segments.size()) {
+
+                        _cur_segment = 0;
+                        _cursor_sample = 0;
+                        _thread.interrupt();
                         return true;
+
                     }
 
                 }
 
-                segment = mSegments.get( mCurSegment );
-            } // if mCursorSample >= segment.bookmark
+                segment = _segments.get(_cur_segment);
+            } // if _cursor_sample >= segment.bookmark
         }
         return false;
     }
 
     public synchronized void start()
     {
-        //Log.d( TAG, LOGPREFIX + "start() " + mDescription );
-
-        if ( mIsplaying ) {
+        if (_is_playing) {
             stop();
         }
 
         try {
             initAudioTrack();
         }
-        catch ( Exception e2 ) {
-            Log.e( TAG, LOGPREFIX + "AudioTrack not created...wtf?  Not creating thread." );
+        catch (Exception e2) {
+            Log.e(TAG, LOGPREFIX + "AudioTrack not created...wtf?  Not creating thread.");
             return;
         }
 
-        mTrack.play();
+        _track.play();
 
-        mThread = new Thread( this );
+        _thread = new Thread(this);
 
-        //Log.d( TAG, LOGPREFIX + "Starting thread " + mThread.toString() );
-        mThread.start();
+        _thread.start();
     }
 
     public synchronized void stop()
     {
-        if ( mThread == null ) {
+        if (_thread == null) {
             return;
         }
 
-        //Log.d( TAG, LOGPREFIX + "Stopping thread " + mThread.toString() );
+        _thread.interrupt();
+        _is_playing = false;
 
-        mThread.interrupt();
-        mIsplaying = false;
-
-        mTrack.flush();
-        mTrack.stop();
-        mTrack.release();
-        mTrack = null;
+        _track.flush();
+        _track.stop();
+        _track.release();
+        _track = null;
 
         resetFlags();
     }
 
     public synchronized void resetFlags()
     {
-        mIsplaying = false;
-        // m_force_stop = false;
-        mCurSegment = 0;
-        mCursorSample = 0;
-        mCurIteration = 0;
+        _is_playing = false;
+        _cur_segment = 0;
+        _cursor_sample = 0;
+        _cur_iteration = 0;
     }
 
     public synchronized String getDescription()
     {
-        return mDescription;
+        return _description;
     }
 
     /**
-     * @param text
-     *         Text to describe sequence.
+     * @param text Text to describe sequence.
      */
-    public synchronized void setDescription( String text )
+    public synchronized void setDescription(String text)
     {
-        mDescription = text.trim();
+        _description = text.trim();
     }
 
     @Override
     public void run()
     {
-        float samples[] = new float[mBufferSize];
+        float   samples[]       = new float[_buffer_size];
         boolean was_interrupted = false;
-        mIsplaying = true;
+        _is_playing = true;
 
-        while ( !was_interrupted ) {
+        while (!was_interrupted) {
             try {
                 // fetch next bunch of samples, shove them into 'samples'
-                getSamples( samples, mBufferSize );
+                getSamples(samples, _buffer_size);
 
-                if ( mBuffer.length < mBufferSize ) {
-                    mBuffer = new short[mBufferSize];
+                if (_buffer.length < _buffer_size) {
+                    _buffer = new short[_buffer_size];
                 }
 
-                for ( int i = 0; i < mBufferSize; i++ ) {
-                    mBuffer[i] = (short) ( samples[i] * Short.MAX_VALUE );
+                for (int i = 0; i < _buffer_size; i++) {
+                    _buffer[i] = (short) (samples[i] * Short.MAX_VALUE);
                 }
 
-                if ( mTrack != null ) {
-                    mTrack.write( mBuffer, 0, mBufferSize );
+                if (_track != null) {
+                    _track.write(_buffer, 0, _buffer_size);
                 }
             }
-            catch ( Exception e ) {
+            catch (Exception e) {
                 was_interrupted = true;
-                Log.e( TAG, LOGPREFIX + "Error while playing back: " + e.toString() );
+                Log.e(TAG, LOGPREFIX + "Error while playing back: " + e.toString());
             }
 
-            if ( Thread.interrupted() ) {
+            if (Thread.interrupted()) {
                 was_interrupted = true;
             }
         }
 
-        if ( mTrack != null ) {
-            mTrack.release();
+        if (_track != null) {
+            _track.release();
         }
 
-        mIsplaying = false;
+        _is_playing = false;
     }
 }

@@ -1,4 +1,5 @@
-/*******************************************************************************
+/**
+ * ****************************************************************************
  * ________                 ____       ____
  * _/_  __/___  ____  ___  / __ \___  / __/
  * __/ / / __ \/ __ \/ _ \/ / / / _ \/ /_
@@ -10,29 +11,30 @@
  *
  * Refer to the license.txt file included for license information.
  * If it is missing, contact fortyseven@gmail.com for details.
- ******************************************************************************/
+ * ****************************************************************************
+ */
 
 package com.bytestemplar.tonedef.gen;
 
 public class Sine
 {
-    float m_increment;
-    float m_angle;
+    float _increment;
+    float _angle;
 
-    public Sine( int freq )
+    public Sine(int freq)
     {
-        this.m_increment = (float) ( 2 * Math.PI ) * freq / 44100;
+        this._increment = (float) (2 * Math.PI) * freq / 44100;
         this.reset();
     }
 
     public void reset()
     {
-        this.m_angle = 0;
+        this._angle = 0;
     }
 
     public float getNextSample()
     {
-        this.m_angle += this.m_increment;
-        return ( (float) Math.sin( this.m_angle ) );
+        this._angle += this._increment;
+        return ((float) Math.sin(this._angle));
     }
 }

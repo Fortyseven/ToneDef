@@ -1,4 +1,5 @@
-/*******************************************************************************
+/**
+ * ****************************************************************************
  * ________                 ____       ____
  * _/_  __/___  ____  ___  / __ \___  / __/
  * __/ / / __ \/ __ \/ _ \/ / / / _ \/ /_
@@ -10,15 +11,16 @@
  *
  * Refer to the license.txt file included for license information.
  * If it is missing, contact fortyseven@gmail.com for details.
- ******************************************************************************/
+ * ****************************************************************************
+ */
 
 package com.bytestemplar.tonedef.gen;
 
 public class SequenceDefinition
 {
-    private int     mDuration    = 0;
-    private int[]   mFrequencies = null;
-    private Command mCmd         = null;
+    private int     _duration    = 0;
+    private int[]   _frequencies = null;
+    private Command _cmd         = null;
 
     public interface Command
     {
@@ -28,13 +30,13 @@ public class SequenceDefinition
     /**
      * Defines a tone and it's duration. This is used in both the playback of dialing sequencies, and for button presses.
      *
-     * @param duration How long this tone will be played for in dialing sequences, in milliseconds.
+     * @param duration    How long this tone will be played for in dialing sequences, in milliseconds.
      * @param frequencies Frequencies of the tone, in hz. (Variable number of arguments.)
      */
-    public SequenceDefinition( int duration, int... frequencies )
+    public SequenceDefinition(int duration, int... frequencies)
     {
-        setDuration( duration );
-        setFrequencies( frequencies );
+        setDuration(duration);
+        setFrequencies(frequencies);
     }
 
     /**
@@ -43,9 +45,9 @@ public class SequenceDefinition
      *
      * @param cmd
      */
-    public SequenceDefinition( Command cmd )
+    public SequenceDefinition(Command cmd)
     {
-        mCmd = cmd;
+        _cmd = cmd;
     }
 
     /**
@@ -53,7 +55,7 @@ public class SequenceDefinition
      */
     public void execute()
     {
-        mCmd.execute();
+        _cmd.execute();
     }
 
     /**
@@ -63,7 +65,7 @@ public class SequenceDefinition
      */
     public int getDuration()
     {
-        return mDuration;
+        return _duration;
     }
 
 
@@ -72,9 +74,9 @@ public class SequenceDefinition
      *
      * @param duration Time in milliseconds
      */
-    public void setDuration( int duration )
+    public void setDuration(int duration)
     {
-        this.mDuration = duration;
+        this._duration = duration;
     }
 
     /**
@@ -84,7 +86,7 @@ public class SequenceDefinition
      */
     public int[] getFrequencies()
     {
-        return mFrequencies;
+        return _frequencies;
     }
 
     /**
@@ -92,9 +94,9 @@ public class SequenceDefinition
      *
      * @param m_frequencies An array of integers representing tones in Hz.
      */
-    public void setFrequencies( int[] m_frequencies )
+    public void setFrequencies(int[] m_frequencies)
     {
-        this.mFrequencies = m_frequencies;
+        this._frequencies = m_frequencies;
     }
 
     /**
@@ -104,6 +106,6 @@ public class SequenceDefinition
      */
     public boolean isCommand()
     {
-        return ( mCmd != null );
+        return (_cmd != null);
     }
 }
