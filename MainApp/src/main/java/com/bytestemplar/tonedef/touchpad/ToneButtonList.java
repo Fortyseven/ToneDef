@@ -38,7 +38,7 @@ public class ToneButtonList
     }
 
     /**
-     * Adds a button definition to the list. The View ID provided will be onClick hooked to
+     * Adds a button _definition to the list. The View ID provided will be onClick hooked to
      * generate the,,, wait, fuck.
      *
      * @param view_id The ID of the view that will catch the onClick event to trigger this tone

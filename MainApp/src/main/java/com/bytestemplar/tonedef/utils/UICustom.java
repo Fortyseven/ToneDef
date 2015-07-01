@@ -1,4 +1,5 @@
-/*******************************************************************************
+/**
+ * ****************************************************************************
  * ________                 ____       ____
  * _/_  __/___  ____  ___  / __ \___  / __/
  * __/ / / __ \/ __ \/ _ \/ / / / _ \/ /_
@@ -10,7 +11,8 @@
  *
  * Refer to the license.txt file included for license information.
  * If it is missing, contact fortyseven@gmail.com for details.
- ******************************************************************************/
+ * ****************************************************************************
+ */
 
 package com.bytestemplar.tonedef.utils;
 
@@ -27,33 +29,29 @@ import android.widget.ScrollView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
-/**
- * ToneDef - com.bytestemplar.tonedef.utils
- * Created by Fortyseven on 4/9/2014.
- */
 public class UICustom
 {
     public static final String   TYPEFACE_FILENAME = "c64.ttf";
-    public static       UICustom instance          = null;
-    private static      Typeface mFont             = null;
+    public static       UICustom _instance         = null;
+    private static      Typeface _font             = null;
 
 
-    static public UICustom getInstance()
+    static public UICustom get_instance()
     {
-        if ( UICustom.instance == null ) {
+        if ( UICustom._instance == null ) {
             throw new RuntimeException( "UICustom was not initialized" );
         }
-        return instance;
+        return _instance;
     }
 
     static public void init( Context context )
     {
-        instance = new UICustom( context );
+        _instance = new UICustom( context );
     }
 
     public UICustom( Context context )
     {
-        mFont = Typeface.createFromAsset( context.getAssets(), TYPEFACE_FILENAME );
+        _font = Typeface.createFromAsset( context.getAssets(), TYPEFACE_FILENAME );
     }
 
     public void updateActivity( Activity act )
@@ -71,8 +69,7 @@ public class UICustom
             if ( ( view instanceof LinearLayout ) ||
                  ( view instanceof ScrollView ) ||
                  ( view instanceof TabHost ) ||
-                 ( view instanceof FrameLayout ) )
-            {
+                 ( view instanceof FrameLayout ) ) {
                 updateViewHierarchy( (ViewGroup) view );
             }
             else {
@@ -86,13 +83,13 @@ public class UICustom
         btn.setSoundEffectsEnabled( false );
 
         if ( btn instanceof EditText ) {
-            ( (EditText) ( btn ) ).setTypeface( mFont );
+            ( (EditText) ( btn ) ).setTypeface( _font );
         }
         else if ( btn instanceof TextView ) {
-            ( (TextView) ( btn ) ).setTypeface( mFont );
+            ( (TextView) ( btn ) ).setTypeface( _font );
         }
         else if ( btn instanceof Button ) {
-            ( (Button) ( btn ) ).setTypeface( mFont );
+            ( (Button) ( btn ) ).setTypeface( _font );
         }
     }
 }

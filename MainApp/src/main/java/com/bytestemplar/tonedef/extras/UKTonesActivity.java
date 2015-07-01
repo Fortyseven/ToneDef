@@ -38,11 +38,11 @@ public class UKTonesActivity extends TonePanelActivity
 
         uk_tones = new UKTones( this );
 
-        defineButton( R.id.btnUKDialtone, R.id.btnUKDialtoneAbout, uk_tones.dialtone );
-        defineButton( R.id.btnUKRingback, R.id.btnUKRingbackAbout, uk_tones.ringback );
-        defineButton( R.id.btnUKEuroRingback, R.id.btnUKEuroRingbackAbout, uk_tones.euro_ringback );
+        defineButton( R.id.btnUKDialtone, R.id.btnUKDialtoneAbout, uk_tones._dialtone );
+        defineButton( R.id.btnUKRingback, R.id.btnUKRingbackAbout, uk_tones._ringback );
+        defineButton( R.id.btnUKEuroRingback, R.id.btnUKEuroRingbackAbout, uk_tones._euro_ringback );
 
-        setTitleText( uk_tones.title );
+        setTitleText( uk_tones._title );
 
         setup();
     }

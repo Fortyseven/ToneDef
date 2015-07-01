@@ -55,6 +55,6 @@ public class USTones
         ringback = new ToneSequence( parent );
         ringback.addSegment( 2000, 440, 480 );
         ringback.addSegment( 4000, 0 );
-        ringback.setDescription( "A ringback tone is an audible indication that is heard on the telephone line by the caller while the phone they are calling is being rung. It is normally a repeated tone, designed to assure the calling party that the called party's line is ringing, although the ring-back tone may be out of sync with the ringing signal." );
+        ringback.setDescription( "A _ringback tone is an audible indication that is heard on the telephone line by the caller while the phone they are calling is being rung. It is normally a repeated tone, designed to assure the calling party that the called party's line is ringing, although the ring-back tone may be out of sync with the ringing signal." );
     }
 }

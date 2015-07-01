@@ -1,4 +1,5 @@
-/*******************************************************************************
+/**
+ * ****************************************************************************
  * ________                 ____       ____
  * _/_  __/___  ____  ___  / __ \___  / __/
  * __/ / / __ \/ __ \/ _ \/ / / / _ \/ /_
@@ -10,7 +11,8 @@
  *
  * Refer to the license.txt file included for license information.
  * If it is missing, contact fortyseven@gmail.com for details.
- ******************************************************************************/
+ * ****************************************************************************
+ */
 
 package com.bytestemplar.tonedef.tones;
 
@@ -87,7 +89,8 @@ public class ToneBankRedBox extends ToneBank
             }
         } ) );
 
-        addEntry( '5', new SequenceDefinition( new SequenceDefinition.Command() {
+        addEntry( '5', new SequenceDefinition( new SequenceDefinition.Command()
+        {
             @Override
             public void execute()
             {

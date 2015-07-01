@@ -59,7 +59,7 @@ public class SequenceDefinition
     }
 
     /**
-     * Returns the "on" duration of the sequence.
+     * Returns the "on" duration of the _sequence.
      *
      * @return Time in milliseconds
      */
@@ -70,7 +70,7 @@ public class SequenceDefinition
 
 
     /**
-     * Sets the "on" duration of the sequence.
+     * Sets the "on" duration of the _sequence.
      *
      * @param duration Time in milliseconds
      */
@@ -80,7 +80,7 @@ public class SequenceDefinition
     }
 
     /**
-     * Return an array of all of the frequencies defined in the sequence
+     * Return an array of all of the frequencies defined in the _sequence
      *
      * @return Returns an array of frequencies in Hz.
      */
@@ -90,7 +90,7 @@ public class SequenceDefinition
     }
 
     /**
-     * Set the frequencies for use in the sequence.
+     * Set the frequencies for use in the _sequence.
      *
      * @param m_frequencies An array of integers representing tones in Hz.
      */
@@ -102,7 +102,7 @@ public class SequenceDefinition
     /**
      * This method is it's own documentation.
      *
-     * @return Returns true if sequence is a command.
+     * @return Returns true if _sequence is a command.
      */
     public boolean isCommand()
     {

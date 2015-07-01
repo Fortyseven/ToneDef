@@ -125,8 +125,8 @@ public class TonePanelActivity extends Activity
 
     protected void setTitleText(String title)
     {
-        // TextView tv = (TextView) findViewById( R.id.title );
-        // tv.setText( title );
+        // TextView tv = (TextView) findViewById( R.id._title );
+        // tv.setText( _title );
 
         this.setTitle(this.getTitle() + " - " + title);
 

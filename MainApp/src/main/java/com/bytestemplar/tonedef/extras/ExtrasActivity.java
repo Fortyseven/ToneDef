@@ -54,6 +54,6 @@ public class ExtrasActivity extends TabActivity
         th.addTab( tab );
 
         th.setCurrentTab( 0 );
-        UICustom.getInstance().updateActivity( this );
+        UICustom.get_instance().updateActivity( this );
     }
 }

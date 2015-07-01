@@ -1,4 +1,5 @@
-/*******************************************************************************
+/**
+ * ****************************************************************************
  * ________                 ____       ____
  * _/_  __/___  ____  ___  / __ \___  / __/
  * __/ / / __ \/ __ \/ _ \/ / / / _ \/ /_
@@ -10,7 +11,8 @@
  *
  * Refer to the license.txt file included for license information.
  * If it is missing, contact fortyseven@gmail.com for details.
- ******************************************************************************/
+ * ****************************************************************************
+ */
 
 package com.bytestemplar.tonedef;
 
@@ -47,13 +49,20 @@ public class ContactList
             if ( c.moveToFirst() ) {
                 String contactId = c.getString( c.getColumnIndex( BaseColumns._ID ) );
                 try {
-                    int has = c.getInt( c.getColumnIndexOrThrow( ( ContactsContract.PhoneLookup.HAS_PHONE_NUMBER ) ) );
+                    int
+                            has =
+                            c.getInt( c.getColumnIndexOrThrow( ( ContactsContract.PhoneLookup.HAS_PHONE_NUMBER ) ) );
                     if ( has != 0 ) {
                         Cursor phones = context.getContentResolver()
-                                               .query( ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + contactId, null, null );
+                                               .query( ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                                                       null,
+                                                       ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + contactId,
+                                                       null,
+                                                       null );
                         if ( phones != null ) {
                             while ( phones.moveToNext() ) {
-                                phone = phones.getString( phones.getColumnIndex( ContactsContract.CommonDataKinds.Phone.NUMBER ) );
+                                phone =
+                                        phones.getString( phones.getColumnIndex( ContactsContract.CommonDataKinds.Phone.NUMBER ) );
                             }
                             phones.close();
                         }
@@ -61,7 +70,8 @@ public class ContactList
                         result = phone;
                     }
                     else {
-                        Alert.show( context, context.getResources().getString( R.string.no_contact ) );
+                        Alert.show( context,
+                                    context.getResources().getString( R.string.no_contact ) );
                     }
 
                 }

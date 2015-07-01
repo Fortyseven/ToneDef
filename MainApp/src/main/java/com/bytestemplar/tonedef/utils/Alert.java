@@ -1,4 +1,5 @@
-/*******************************************************************************
+/**
+ * ****************************************************************************
  * ________                 ____       ____
  * _/_  __/___  ____  ___  / __ \___  / __/
  * __/ / / __ \/ __ \/ _ \/ / / / _ \/ /_
@@ -10,7 +11,8 @@
  *
  * Refer to the license.txt file included for license information.
  * If it is missing, contact fortyseven@gmail.com for details.
- ******************************************************************************/
+ * ****************************************************************************
+ */
 
 package com.bytestemplar.tonedef.utils;
 
@@ -29,17 +31,15 @@ public class Alert
     public interface OnClick
     {
 
-        public abstract void action( Context context );
+        void action( Context context );
 
     }
 
     /**
      * ********************************************************
      *
-     * @param context
-     *         Context handle
-     * @param message
-     *         Message for show box
+     * @param context Context handle
+     * @param message Message for show box
      */
     public static void show( Activity context, String message )
     {
@@ -57,14 +57,10 @@ public class Alert
     }
 
     /**
-     * @param context
-     *         Context handle
-     * @param title
-     *         Title for top of show box (optional)
-     * @param message
-     *         Message for show box
-     * @param on_close
-     *         Callback to perform when box is dismissed
+     * @param context  Context handle
+     * @param title    Title for top of show box (optional)
+     * @param message  Message for show box
+     * @param on_close Callback to perform when box is dismissed
      */
     public static void show( final Activity context, final String title, final String message, final int icon_resource, final OnClick on_close )
     {
@@ -78,17 +74,22 @@ public class Alert
                 }
 
                 AlertDialog.Builder builder = new AlertDialog.Builder( context );
-                builder.setMessage( message ).setIcon( my_icon_resource ).setTitle( title ).setPositiveButton( "Ok", new DialogInterface.OnClickListener()
-                {
-                    @Override
-                    public void onClick( DialogInterface dialog, int id )
-                    {
-                        dialog.dismiss();
-                        if ( on_close != null ) {
-                            on_close.action( context );
-                        }
-                    }
-                } ).create().show();
+                builder.setMessage( message )
+                       .setIcon( my_icon_resource )
+                       .setTitle( title )
+                       .setPositiveButton( "Ok", new DialogInterface.OnClickListener()
+                       {
+                           @Override
+                           public void onClick( DialogInterface dialog, int id )
+                           {
+                               dialog.dismiss();
+                               if ( on_close != null ) {
+                                   on_close.action( context );
+                               }
+                           }
+                       } )
+                       .create()
+                       .show();
 
             }
         } );

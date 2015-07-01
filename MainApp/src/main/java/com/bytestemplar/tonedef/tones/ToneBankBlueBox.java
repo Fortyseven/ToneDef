@@ -55,7 +55,7 @@ import com.bytestemplar.tonedef.gen.SequenceDefinition;
  */
 public class ToneBankBlueBox extends ToneBank
 {
-    public ToneBankBlueBox(Activity parent)
+    public ToneBankBlueBox( Activity parent )
     {
         super( parent );
 

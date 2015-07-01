@@ -1,4 +1,5 @@
-/*******************************************************************************
+/**
+ * ****************************************************************************
  * ________                 ____       ____
  * _/_  __/___  ____  ___  / __ \___  / __/
  * __/ / / __ \/ __ \/ _ \/ / / / _ \/ /_
@@ -10,7 +11,8 @@
  *
  * Refer to the license.txt file included for license information.
  * If it is missing, contact fortyseven@gmail.com for details.
- ******************************************************************************/
+ * ****************************************************************************
+ */
 
 package com.bytestemplar.tonedef.tones;
 
@@ -31,62 +33,61 @@ public class ToneBank
     private static final String LOGPREFIX = "[ToneBank] ";
 
     /**
-     * This inner class represents an entry in a ToneBank definition. This object might represent
-     * a single, playable keypad tone, or a sequence of tones, such as a busy signal.
+     * This inner class represents an entry in a ToneBank _definition. This object might represent
+     * a single, playable keypad tone, or a _sequence of tones, such as a busy signal.
      */
 
     public class Entry
     {
-        public char               ch;
-        public ToneSequence       sequence;
-        public SequenceDefinition definition;
+        public char               _ch;
+        public ToneSequence       _sequence;
+        public SequenceDefinition _definition;
 
         public void start()
         {
-            if ( definition.isCommand() ) {
-                definition.execute();
+            if ( _definition.isCommand() ) {
+                _definition.execute();
             }
             else {
-                sequence.start();
+                _sequence.start();
             }
         }
 
         public void stop()
         {
-            if ( !definition.isCommand() ) {
-                sequence.stop();
+            if ( !_definition.isCommand() ) {
+                _sequence.stop();
             }
         }
     }
 
-    public ArrayList<Entry> entries;
-
-    private final Activity mParent;
+    public ArrayList<Entry> _entries;
+    private final Activity _parent;
 
     public ToneBank( Activity parent )
     {
-        this.mParent = parent;
-        entries = new ArrayList<Entry>();
+        this._parent = parent;
+        _entries = new ArrayList<>();
     }
 
     public void addEntry( char ch, SequenceDefinition seq_definition )
     {
         Entry newentry = new Entry();
 
-        newentry.ch = ch;
-        newentry.definition = seq_definition;
+        newentry._ch = ch;
+        newentry._definition = seq_definition;
 
         if ( !seq_definition.isCommand() ) {
-            newentry.sequence = new ToneSequence( mParent );
-            newentry.sequence.addSegment( seq_definition );
+            newentry._sequence = new ToneSequence( _parent );
+            newentry._sequence.addSegment( seq_definition );
         }
-        entries.add( newentry );
+        _entries.add( newentry );
     }
 
     public Entry getEntry( char ch )
     {
-        for ( Entry entry : entries ) {
-            if ( entry.ch == ch ) {
+        for ( Entry entry : _entries ) {
+            if ( entry._ch == ch ) {
                 return entry;
             }
         }
@@ -96,10 +97,10 @@ public class ToneBank
 
     public ToneSequence buildToneSequence( int on_duration, int off_duration, int pause_duration, String digits )
     {
-        ToneSequence seq = new ToneSequence( this.mParent );
+        ToneSequence seq = new ToneSequence( this._parent );
 
         SequenceDefinition silence = new SequenceDefinition( off_duration, 0 );
-        SequenceDefinition pause = new SequenceDefinition( pause_duration, 0 );
+        SequenceDefinition pause   = new SequenceDefinition( pause_duration, 0 );
 
         for ( int i = 0; i < digits.length(); i++ ) {
             if ( digits.charAt( i ) == ';' || digits.charAt( i ) == 'W' ) {
@@ -109,7 +110,7 @@ public class ToneBank
                 seq.addSegment( pause );
             }
             else if ( getEntry( digits.charAt( i ) ) != null ) {
-                SequenceDefinition tone = getEntry( digits.charAt( i ) ).definition;
+                SequenceDefinition tone = getEntry( digits.charAt( i ) )._definition;
                 tone.setDuration( on_duration );
                 seq.addSegment( tone );
                 seq.addSegment( silence );

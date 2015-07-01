@@ -115,10 +115,10 @@ public class ToneSequence implements Runnable
     }
 
     /**
-     * Defines a segment of an overall sequence. Sequences are iterated
+     * Defines a segment of an overall _sequence. Sequences are iterated
      * through over the lifetime of the playback.
      *
-     * @param duration    Length of time the current sequence of tones should
+     * @param duration    Length of time the current _sequence of tones should
      *                    play.
      * @param frequencies A varargs list of int frequencies to play
      *                    simultaneously.
@@ -148,7 +148,7 @@ public class ToneSequence implements Runnable
     }
 
     /**
-     * Defines a segment of an overall sequence. Sequences are iterated
+     * Defines a segment of an overall _sequence. Sequences are iterated
      * through over the lifetime of the playback.
      *
      * @param sequence A SequenceDefinition object.
@@ -309,7 +309,7 @@ public class ToneSequence implements Runnable
     }
 
     /**
-     * @param text Text to describe sequence.
+     * @param text Text to describe _sequence.
      */
     public synchronized void setDescription( String text )
     {

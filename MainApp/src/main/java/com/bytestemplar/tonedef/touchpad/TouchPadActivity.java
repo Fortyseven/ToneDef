@@ -1,4 +1,5 @@
-/*******************************************************************************
+/**
+ * ****************************************************************************
  * ________                 ____       ____
  * _/_  __/___  ____  ___  / __ \___  / __/
  * __/ / / __ \/ __ \/ _ \/ / / / _ \/ /_
@@ -10,7 +11,8 @@
  *
  * Refer to the license.txt file included for license information.
  * If it is missing, contact fortyseven@gmail.com for details.
- ******************************************************************************/
+ * ****************************************************************************
+ */
 
 package com.bytestemplar.tonedef.touchpad;
 
@@ -116,7 +118,9 @@ public abstract class TouchPadActivity extends Activity implements OnTouchListen
 
         // inflate layout
         LinearLayout content_container = (LinearLayout) findViewById( R.id.touchpad_content );
-        LayoutInflater inflater = (LayoutInflater) getSystemService( Context.LAYOUT_INFLATER_SERVICE );
+        LayoutInflater
+                inflater =
+                (LayoutInflater) getSystemService( Context.LAYOUT_INFLATER_SERVICE );
         inflater.inflate( mTouchpadLayout, content_container, true );
 
         // let descendant define mButtons
@@ -136,12 +140,13 @@ public abstract class TouchPadActivity extends Activity implements OnTouchListen
         // hook those mButtons
         for ( int i = 0; i < mButtons.buttons.size(); i++ ) {
             ButtonDefinition button = mButtons.buttons.get( i );
-            button.btnView.setOnTouchListener( this );
-            button.btnView.setSoundEffectsEnabled( false );
 
-            if ( button.btnView instanceof ImageButton ) {
+            button.getButtonView().setOnTouchListener( this );
+            button.getButtonView().setSoundEffectsEnabled( false );
 
-                Drawable ib = ( (ImageButton) ( button.btnView ) ).getDrawable();
+            if ( button.getButtonView() instanceof ImageButton ) {
+
+                Drawable ib = ( (ImageButton) ( button.getButtonView() ) ).getDrawable();
 
                 if ( ib != null ) {
                     if ( mInvertKeyColors ) {
@@ -159,7 +164,7 @@ public abstract class TouchPadActivity extends Activity implements OnTouchListen
             ll.setVisibility( View.GONE );
         }
 
-        UICustom.getInstance().updateActivity( this );
+        UICustom.get_instance().updateActivity( this );
     }
 
     public void setPreferenceIdentifiers( String pref_mark, String pref_space, String pref_delay )
@@ -184,7 +189,8 @@ public abstract class TouchPadActivity extends Activity implements OnTouchListen
         if ( digits.length() > 0 ) {
             ToneSequence generated_sequence;
 
-            generated_sequence = mToneBank.buildToneSequence( mDelayMark, mDelaySpace, mDelDelay, digits );
+            generated_sequence =
+                    mToneBank.buildToneSequence( mDelayMark, mDelaySpace, mDelDelay, digits );
             generated_sequence.setIterations( 1 );
             generated_sequence.start();
         }
@@ -197,24 +203,34 @@ public abstract class TouchPadActivity extends Activity implements OnTouchListen
     public boolean onTouch( View v, MotionEvent event )
     {
         for ( ButtonDefinition button : mButtons.buttons ) {
-            if ( button.btnView.getId() == v.getId() ) {
-                ToneBank.Entry entry = mToneBank.getEntry( button.id );
+
+            if ( button.getButtonView().getId() == v.getId() ) {
+
+                ToneBank.Entry entry = mToneBank.getEntry( button.getId() );
+
                 if ( entry != null ) {
+
                     switch ( event.getAction() ) {
                         case MotionEvent.ACTION_DOWN:
                             entry.start();
-                            button.btnView.setBackgroundResource( R.drawable.touchpadbutton_selected );
+                            button.getButtonView()
+                                  .setBackgroundResource( R.drawable.touchpadbutton_selected );
                             break;
                         case MotionEvent.ACTION_UP:
                         case MotionEvent.ACTION_CANCEL:
                             entry.stop();
-                            button.btnView.setBackgroundResource( R.drawable.touchpadbutton );
+                            button.getButtonView()
+                                  .setBackgroundResource( R.drawable.touchpadbutton );
                             break;
+
                     }
+
                 }
                 break;
             }
+
         }
+
         return false;
     }
 

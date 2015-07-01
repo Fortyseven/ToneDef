@@ -15,30 +15,30 @@
 package com.bytestemplar.tonedef.tones;
 
 /*
-    This is an entry in a ToneBank definition. This object might represent a single, playable
-    keypad tone, or a sequence of tones, such as a busy signal.
+    This is an entry in a ToneBank _definition. This object might represent a single, playable
+    keypad tone, or a _sequence of tones, such as a busy signal.
 */
 
 //public class ToneBankEntry
 //{
-//    public char               ch;
-//    public ToneSequence       sequence;
-//    public SequenceDefinition definition;
+//    public char               _ch;
+//    public ToneSequence       _sequence;
+//    public SequenceDefinition _definition;
 //
 //    public void start()
 //    {
-//        if ( definition.isCommand() ) {
-//            definition.execute();
+//        if ( _definition.isCommand() ) {
+//            _definition.execute();
 //        }
 //        else {
-//            sequence.start();
+//            _sequence.start();
 //        }
 //    }
 //
 //    public void stop()
 //    {
-//        if ( !definition.isCommand() ) {
-//            sequence.stop();
+//        if ( !_definition.isCommand() ) {
+//            _sequence.stop();
 //        }
 //    }
 //}
