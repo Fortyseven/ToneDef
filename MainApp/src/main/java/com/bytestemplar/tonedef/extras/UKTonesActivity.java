@@ -5,7 +5,7 @@
  * _/ / / /_/ / / / /  __/ /_/ /  __/ __/
  * /_/  \____/_/ /_/\___/_____/\___/_/
  *
- * Copyright (c) 2014 Bytes Templar
+ * Copyright (c) 2015 Bytes Templar
  * http://BytesTemplar.com/
  *
  * Refer to the license.txt file included for license information.
