@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
         android:key="zero_category"
-        android:title="General" >
+        android:title="General">
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="invert_text_color"
             android:summary="Invert the color of the text used throughout the app. (White when enabled.)"
             android:title="Invert text color" />
-        
     </PreferenceCategory>
+
     <PreferenceCategory
         android:key="first_category"
-        android:title="DTMF" >
+        android:title="DTMF">
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="ext_dtmf"
             android:summary="Enable display of the more exotic DTMF tones (A,B,C,D)."
             android:title="Enable extended DTMF" />
-
         <EditTextPreference
             android:defaultValue="250"
             android:dialogMessage="Duration in milliseconds (1000 = 1 sec)"
@@ -42,9 +41,10 @@
             android:summary="Define the length of the pause command (comma, or \&apos;P\&apos;) in dialing strings."
             android:title="Pause Length" />
     </PreferenceCategory>
+    
     <PreferenceCategory
         android:key="first_category"
-        android:title="Blue Box" >
+        android:title="Blue Box">
         <EditTextPreference
             android:defaultValue="250"
             android:dialogMessage="Duration in milliseconds (1000 = 1 sec)"
@@ -67,5 +67,4 @@
             android:summary="Define the length of the pause command (comma, or \&apos;P\&apos;) in dialing strings."
             android:title="Pause Length" />
     </PreferenceCategory>
-
 </PreferenceScreen>
