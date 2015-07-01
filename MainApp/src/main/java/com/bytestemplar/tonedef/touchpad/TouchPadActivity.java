@@ -59,7 +59,7 @@ public abstract class TouchPadActivity extends Activity implements OnTouchListen
 
     private EditText _et_dialing_string = null;
 
-    private ToneButtonList mButtons = null;
+    private ToneButtonList _buttons = null;
 
     private int      _touchpad_layout = 0;
     private ToneBank _tonebank        = null;
@@ -94,7 +94,7 @@ public abstract class TouchPadActivity extends Activity implements OnTouchListen
         _preferences = PreferenceManager.getDefaultSharedPreferences( this );
 
         _et_dialing_string = (EditText) findViewById( R.id.etDialingString );
-        mButtons = new ToneButtonList( this );
+        _buttons = new ToneButtonList( this );
     }
 
     protected void setup( boolean disable_dialstring, boolean disable_menu ) throws Exception
@@ -125,41 +125,15 @@ public abstract class TouchPadActivity extends Activity implements OnTouchListen
                 (LayoutInflater) getSystemService( Context.LAYOUT_INFLATER_SERVICE );
         inflater.inflate( _touchpad_layout, content_container, true );
 
-        // let descendant define mButtons
-        defineToneButtons( mButtons );
+        // let descendant define _buttons
+        defineToneButtons( _buttons );
 
-        if ( mButtons.buttons.size() == 0 ) {
+        if ( _buttons.buttons.size() == 0 ) {
             throw new Exception( "At least one button must be defined via defineToneButtons" );
         }
 
-        boolean mInvertKeyColors = false;
-        if ( _preferences.getBoolean( "invert_text_color", false ) ) {
-            mInvertKeyColors = true;
-            ColorMatrix cm = new ColorMatrix( _invert );
-            _invert_paint = new ColorMatrixColorFilter( cm );
-        }
+        assertInvertState( true );
 
-        // hook those mButtons
-        for ( int i = 0; i < mButtons.buttons.size(); i++ ) {
-            ButtonDefinition button = mButtons.buttons.get( i );
-
-            button.getButtonView().setOnTouchListener( this );
-            button.getButtonView().setSoundEffectsEnabled( false );
-
-            if ( button.getButtonView() instanceof ImageButton ) {
-
-                Drawable ib = ( (ImageButton) ( button.getButtonView() ) ).getDrawable();
-
-                if ( ib != null ) {
-                    if ( mInvertKeyColors ) {
-                        ib.setColorFilter( _invert_paint );
-                    }
-                    else {
-                        ib.setColorFilter( null );
-                    }
-                }
-            }
-        }
 
         if ( disable_dialstring ) {
             LinearLayout ll = (LinearLayout) findViewById( R.id.touchpad_dialingstring );
@@ -204,7 +178,7 @@ public abstract class TouchPadActivity extends Activity implements OnTouchListen
     @Override
     public boolean onTouch( View v, MotionEvent event )
     {
-        for ( ButtonDefinition button : mButtons.buttons ) {
+        for ( ButtonDefinition button : _buttons.buttons ) {
 
             if ( button.getButtonView().getId() == v.getId() ) {
 
@@ -283,6 +257,48 @@ public abstract class TouchPadActivity extends Activity implements OnTouchListen
 
         if ( text != null ) {
             playDialingString( text.toString() );
+        }
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+
+        assertInvertState( false );
+    }
+
+    private void assertInvertState( boolean hook_buttons )
+    {
+        boolean mInvertKeyColors = false;
+        if ( _preferences.getBoolean( "invert_text_color", false ) ) {
+            mInvertKeyColors = true;
+            ColorMatrix cm = new ColorMatrix( _invert );
+            _invert_paint = new ColorMatrixColorFilter( cm );
+        }
+
+        // hook those _buttons
+        for ( int i = 0; i < _buttons.buttons.size(); i++ ) {
+            ButtonDefinition button = _buttons.buttons.get( i );
+
+            if ( hook_buttons ) {
+                button.getButtonView().setOnTouchListener( this );
+                button.getButtonView().setSoundEffectsEnabled( false );
+            }
+
+            if ( button.getButtonView() instanceof ImageButton ) {
+
+                Drawable ib = ( (ImageButton) ( button.getButtonView() ) ).getDrawable();
+
+                if ( ib != null ) {
+                    if ( mInvertKeyColors ) {
+                        ib.setColorFilter( _invert_paint );
+                    }
+                    else {
+                        ib.setColorFilter( null );
+                    }
+                }
+            }
         }
     }
 
