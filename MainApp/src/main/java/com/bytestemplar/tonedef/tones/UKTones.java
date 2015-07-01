@@ -44,12 +44,12 @@ public class UKTones
         _ringback.addSegment( 400, 400, 450 );
         _ringback.addSegment( 2000, 0 );
         _ringback.setDescription(
-                "A _ringback tone is an audible indication that is heard on the telephone line by the caller while the phone they are calling is being rung. It is normally a repeated tone, designed to assure the calling party that the called party's line is ringing, although the ring-back tone may be out of sync with the ringing signal." );
+                "A ringback tone is an audible indication that is heard on the telephone line by the caller while the phone they are calling is being rung. It is normally a repeated tone, designed to assure the calling party that the called party's line is ringing, although the ring-back tone may be out of sync with the ringing signal." );
 
         _euro_ringback = new ToneSequence( parent );
         _euro_ringback.addSegment( 1000, 425 );
         _euro_ringback.addSegment( 4000, 0 );
         _euro_ringback.setDescription(
-                "A _ringback tone is an audible indication that is heard on the telephone line by the caller while the phone they are calling is being rung. It is normally a repeated tone, designed to assure the calling party that the called party's line is ringing, although the ring-back tone may be out of sync with the ringing signal." );
+                "A ringback tone is an audible indication that is heard on the telephone line by the caller while the phone they are calling is being rung. It is normally a repeated tone, designed to assure the calling party that the called party's line is ringing, although the ring-back tone may be out of sync with the ringing signal." );
     }
 }
