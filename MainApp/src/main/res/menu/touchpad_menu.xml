@@ -6,12 +6,12 @@
         android:id="@+id/menu_contactpick"
         android:icon="@android:drawable/ic_menu_call"
         android:title="@string/dial_contact"
-        android:showAsAction="ifRoom|withText" />
+        app:showAsAction="ifRoom|withText" />
 
     <item
         android:id="@+id/menu_settings"
         android:icon="@android:drawable/ic_menu_preferences"
         android:title="@string/settings_full"
-        android:showAsAction="ifRoom|withText" />
+        app:showAsAction="ifRoom|withText" />
 
 </menu>
