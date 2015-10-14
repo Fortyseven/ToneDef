@@ -72,8 +72,10 @@ public class ToneBankBlueBox extends ToneBank
         addEntry( '9', new SequenceDefinition( 250, 1100, 1500 ) );
 
         addEntry( 'K', new SequenceDefinition( 250, 1100, 1700 ) );
+        addEntry( '*', new SequenceDefinition( 250, 1100, 1700 ) );
         addEntry( '0', new SequenceDefinition( 250, 1300, 1500 ) );
         addEntry( 'S', new SequenceDefinition( 250, 1500, 1700 ) );
+        addEntry( '#', new SequenceDefinition( 250, 1500, 1700 ) );
 
         addEntry( 'X', new SequenceDefinition( 250, 2600 ) );
     }

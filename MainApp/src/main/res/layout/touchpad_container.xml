@@ -38,8 +38,6 @@
                 android:textColor="#FFFFFF"
                 android:onClick="clickDial"
                 android:text="@string/dial_button"
-                android:paddingStart="40dp"
-                android:paddingEnd="40dp"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
     </LinearLayout>
