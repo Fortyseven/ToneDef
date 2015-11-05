@@ -38,7 +38,7 @@ public class MainActivity extends Activity
         setContentView( R.layout.main );
 
         UICustom.init( this );
-        UICustom.get_instance().updateActivity( this );
+        UICustom.getInstance().updateActivity( this );
 
         showWhatsNew();
     }

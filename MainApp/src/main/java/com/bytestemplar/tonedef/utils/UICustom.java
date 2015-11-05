@@ -32,11 +32,10 @@ import android.widget.TextView;
 public class UICustom
 {
     public static final String   TYPEFACE_FILENAME = "c64.ttf";
-    public static       UICustom _instance         = null;
+    private static      UICustom _instance         = null;
     private static      Typeface _font             = null;
 
-
-    static public UICustom get_instance()
+    static public UICustom getInstance()
     {
         if ( UICustom._instance == null ) {
             throw new RuntimeException( "UICustom was not initialized" );

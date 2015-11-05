@@ -34,7 +34,7 @@ public class AboutActivity extends Activity
                 super.onCreate(savedInstanceState);
                 this.setContentView(R.layout.about);
 
-                UICustom.get_instance().updateActivity(this);
+                UICustom.getInstance().updateActivity(this);
         }
 
         public void clickGitHub(View view)

@@ -140,7 +140,7 @@ public abstract class TouchPadActivity extends Activity implements OnTouchListen
             ll.setVisibility( View.GONE );
         }
 
-        UICustom.get_instance().updateActivity( this );
+        UICustom.getInstance().updateActivity( this );
     }
 
     public void setPreferenceIdentifiers( String pref_mark, String pref_space, String pref_delay )
