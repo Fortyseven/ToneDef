@@ -39,7 +39,7 @@ public class ToneSequence implements Runnable
 
     private static final int SAMPLE_RATE = 44100;
 
-    public static boolean WAIT_FOR_USER = false;
+    static boolean WAIT_FOR_USER = false; // Dodgy as fuck
 
     private static class Segment
     {
