@@ -37,7 +37,7 @@ public class ToneBank
      * a single, playable keypad tone, or a _sequence of tones, such as a busy signal.
      */
 
-    public class Entry
+    static public class Entry
     {
         public char               _ch;
         public ToneSequence       _sequence;
