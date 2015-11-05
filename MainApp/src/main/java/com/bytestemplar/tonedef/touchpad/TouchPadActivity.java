@@ -103,9 +103,9 @@ public abstract class TouchPadActivity extends Activity implements OnTouchListen
 
         // only load preferences if we've been supplied their id
         if ( ( _pref_mark != null ) && ( _pref_delay != null ) && ( _pref_space != null ) ) {
-            _delay_mark = Integer.valueOf( _preferences.getString( _pref_mark, "250" ) );
-            _delay_space = Integer.valueOf( _preferences.getString( _pref_space, "100" ) );
-            _del_delay = Integer.valueOf( _preferences.getString( _pref_delay, "1000" ) );
+            _delay_mark = Integer.parseInt( _preferences.getString( _pref_mark, "250" ) );
+            _delay_space = Integer.parseInt( _preferences.getString( _pref_space, "100" ) );
+            _del_delay = Integer.parseInt( _preferences.getString( _pref_delay, "1000" ) );
         }
 
         // ensure we have a _tonebank
@@ -201,13 +201,10 @@ public abstract class TouchPadActivity extends Activity implements OnTouchListen
                         default:
                             break;
                     }
-
                 }
                 break;
             }
-
         }
-
         return false;
     }
 
