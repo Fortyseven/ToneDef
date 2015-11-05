@@ -288,7 +288,11 @@ public class ToneSequence implements Runnable
         _is_playing = false;
 
         _track.flush();
-        _track.stop();
+
+        if ( _track.getPlayState() == AudioTrack.PLAYSTATE_PLAYING ) {
+            _track.stop();
+        }
+
         _track.release();
         _track = null;
 
