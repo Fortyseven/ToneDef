@@ -198,7 +198,8 @@ public abstract class TouchPadActivity extends Activity implements OnTouchListen
                             button.getButtonView()
                                   .setBackgroundResource( R.drawable.touchpadbutton );
                             break;
-
+                        default:
+                            break;
                     }
 
                 }
