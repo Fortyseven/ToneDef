@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ToneDef</string>
-    <string name="version">Release 11</string>
+    <string name="version">Release 12</string>
     <string name="about_whatsnew">What\'s New?</string>
     <string name="about_whatsnew_text">
         - Settings now accessible from keypad screens\n\n
