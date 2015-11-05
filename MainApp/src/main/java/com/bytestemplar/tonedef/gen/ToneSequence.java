@@ -74,6 +74,16 @@ public class ToneSequence implements Runnable
 
         _total_samples = 0;
 
+        try {
+            _buffer_size = AudioTrack.getMinBufferSize( SAMPLE_RATE,
+                                                        AudioFormat.CHANNEL_OUT_MONO,
+                                                        AudioFormat.ENCODING_PCM_16BIT );
+            _buffer = new short[_buffer_size];
+        }
+        catch ( Exception e ) {
+            Log.e( TAG, LOGPREFIX + "Error getting minimum buffer size for AudioTrack" );
+        }
+
         resetFlags();
 
         setDescription( "" );
@@ -83,12 +93,6 @@ public class ToneSequence implements Runnable
     private synchronized void initAudioTrack() throws Exception
     {
         try {
-            _buffer_size = AudioTrack.getMinBufferSize( SAMPLE_RATE,
-                                                        AudioFormat.CHANNEL_OUT_MONO,
-                                                        AudioFormat.ENCODING_PCM_16BIT );
-
-            _buffer = new short[_buffer_size];
-
             _track = new AudioTrack( AudioManager.STREAM_MUSIC,
                                      SAMPLE_RATE,
                                      AudioFormat.CHANNEL_OUT_MONO,
