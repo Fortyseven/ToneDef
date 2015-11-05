@@ -56,6 +56,7 @@ public class ToneSequence implements Runnable
     private       int           _cursor_sample;
     private       int           _buffer_size;
     private       short[]       _buffer;
+    private       float[]       _samples;
     private       AudioTrack    _track;
     private       Thread        _thread;
     private       boolean       _is_playing;
@@ -79,6 +80,7 @@ public class ToneSequence implements Runnable
                                                         AudioFormat.CHANNEL_OUT_MONO,
                                                         AudioFormat.ENCODING_PCM_16BIT );
             _buffer = new short[_buffer_size];
+            _samples = new float[_buffer_size];
         }
         catch ( Exception e ) {
             Log.e( TAG, LOGPREFIX + "Error getting minimum buffer size for AudioTrack" );
@@ -294,9 +296,8 @@ public class ToneSequence implements Runnable
         _thread.interrupt();
         _is_playing = false;
 
-        _track.flush();
-
         if ( _track.getPlayState() == AudioTrack.PLAYSTATE_PLAYING ) {
+            _track.flush();
             _track.stop();
         }
 
@@ -330,21 +331,20 @@ public class ToneSequence implements Runnable
     @Override
     public void run()
     {
-        float   samples[]       = new float[_buffer_size];
         boolean was_interrupted = false;
         _is_playing = true;
 
         while ( !was_interrupted ) {
             try {
                 // fetch next bunch of samples, shove them into 'samples'
-                getSamples( samples, _buffer_size );
+                getSamples( _samples, _buffer_size );
 
                 if ( _buffer.length < _buffer_size ) {
                     _buffer = new short[_buffer_size];
                 }
 
                 for ( int i = 0; i < _buffer_size; i++ ) {
-                    _buffer[i] = (short) ( samples[i] * Short.MAX_VALUE );
+                    _buffer[i] = (short) ( _samples[i] * Short.MAX_VALUE );
                 }
 
                 if ( _track != null ) {
