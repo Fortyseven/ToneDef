@@ -38,9 +38,9 @@
     <string name="store_review_begging">If you like ToneDef, why not help me out and leave a rating on the Android Market (or your favorite app store)? :)</string>
     <string name="OK">OK</string>
     <string name="dial_button">Dial</string>
-    <string name="redbox_25cents">25¢</string>
-    <string name="redbox_10cents">10¢</string>
-    <string name="redbox_5cents">5¢</string>
+    <string name="redbox_25cents">25c</string>
+    <string name="redbox_10cents">10c</string>
+    <string name="redbox_5cents">5c</string>
     <string name="redbox_10p">10p</string>
     <string name="redbox_50cents">50p</string>
     <string name="dial_contact">Dial Contact</string>
