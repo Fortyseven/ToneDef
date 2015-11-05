@@ -69,6 +69,8 @@ public class TonePanelActivity extends Activity
                         case MotionEvent.ACTION_UP:
                             TonePanelActivity.this._momentary_buttons.get( id ).stop();
                             break;
+                        default:
+                            break;
                     }
                 }
                 if ( TonePanelActivity.this._about_buttons.containsKey( id ) ) {
@@ -142,8 +144,9 @@ public class TonePanelActivity extends Activity
             catch ( Exception e ) {
                 e.printStackTrace();
             }
+        } else {
+            this.modifyViews( root );
         }
-        this.modifyViews( root );
 
     }
 
