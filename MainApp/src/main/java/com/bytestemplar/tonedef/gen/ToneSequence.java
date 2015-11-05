@@ -140,6 +140,9 @@ public class ToneSequence implements Runnable
         _segments.add( seg );
     }
 
+    /**
+     * Inserts a special "Wait" user segment
+     */
     public synchronized void addUserWaitSegment()
     {
         Segment seg = new Segment();
