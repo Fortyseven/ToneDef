@@ -287,6 +287,9 @@ public class ToneSequence implements Runnable
         _thread.start();
     }
 
+    /**
+     * Kill the thread, stop and release audio resources
+     */
     public synchronized void stop()
     {
         if ( _thread == null ) {
@@ -297,8 +300,8 @@ public class ToneSequence implements Runnable
         _is_playing = false;
 
         if ( _track.getPlayState() == AudioTrack.PLAYSTATE_PLAYING ) {
+            _track.pause();
             _track.flush();
-            _track.stop();
         }
 
         _track.release();
@@ -359,10 +362,6 @@ public class ToneSequence implements Runnable
             if ( Thread.interrupted() ) {
                 was_interrupted = true;
             }
-        }
-
-        if ( _track != null ) {
-            _track.release();
         }
 
         _is_playing = false;
