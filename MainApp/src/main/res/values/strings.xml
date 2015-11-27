@@ -4,8 +4,13 @@
     <string name="version">Release 12</string>
     <string name="about_whatsnew">What\'s New?</string>
     <string name="about_whatsnew_text">
-        - Settings now accessible from keypad screens\n\n
-        - Assorted minor optimizations and compatibility updates\n\n
+        - Fixed bluebox KP/ST issues (thanks zipcode!)\n\n
+        - Added * and # as aliases for bluebox dialstring (thanks zipcode!)\n\n
+        - Fixed font issue on redbox screen for older devices\n\n
+        - Fixed a memory leak, and dreased memory usage\n\n
+        - Fixed a couple non-user facing issues on older devices\n\n
+        - Optimizations should give increased performance on older devices\n\n
+        - Builds are now also available on F-Droid\n\n
     </string>
     <string name="about_knownissues">Known Issues</string>
         <string name="about_knownissues_text">
