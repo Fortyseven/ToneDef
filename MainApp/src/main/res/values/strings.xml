@@ -4,6 +4,7 @@
     <string name="version">Release 12</string>
     <string name="about_whatsnew">What\'s New?</string>
     <string name="about_whatsnew_text">
+        - Fixed freezing on some devices after audio playback
         - Fixed bluebox KP/ST issues (thanks zipcode!)\n\n
         - Added * and # as aliases for bluebox dialstring (thanks zipcode!)\n\n
         - Fixed font issue on redbox screen for older devices\n\n
