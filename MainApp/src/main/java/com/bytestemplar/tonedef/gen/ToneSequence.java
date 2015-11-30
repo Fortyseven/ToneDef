@@ -310,6 +310,9 @@ public class ToneSequence implements Runnable
         resetFlags();
     }
 
+    public boolean isPlaying() {
+        return _is_playing;
+    }
     public synchronized void resetFlags()
     {
         _is_playing = false;

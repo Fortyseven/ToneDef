@@ -64,6 +64,8 @@ public abstract class TouchPadActivity extends Activity implements OnTouchListen
     private int      _touchpad_layout = 0;
     private ToneBank _tonebank        = null;
 
+    private ToneSequence _generated_dial_sequence = null;
+
     private String _pref_mark  = null;
     private String _pref_space = null;
     private String _pref_delay = null;
@@ -163,12 +165,15 @@ public abstract class TouchPadActivity extends Activity implements OnTouchListen
     public void playDialingString( String digits )
     {
         if ( digits.length() > 0 ) {
-            ToneSequence generated_sequence;
+            // Do not start playing again if sequence is in-progress
+            if (_generated_dial_sequence != null) {
+                if (_generated_dial_sequence.isPlaying()) return;
+            }
 
-            generated_sequence =
+            _generated_dial_sequence =
                     _tonebank.buildToneSequence( _delay_mark, _delay_space, _del_delay, digits );
-            generated_sequence.setIterations( 1 );
-            generated_sequence.start();
+            _generated_dial_sequence.setIterations( 1 );
+            _generated_dial_sequence.start();
         }
         else {
             Toast.makeText( this, "Dialing string is empty!", Toast.LENGTH_SHORT ).show();
