@@ -25,6 +25,7 @@ public class OtherTones
     public ToneSequence _jp_dialtone;
     public ToneSequence _jp_ringback;
     public ToneSequence _it_ringback;
+    public ToneSequence _it_dialtone;
 
     public ToneSequence _de_dialtone;
 
@@ -50,9 +51,15 @@ public class OtherTones
         _jp_ringback.setDescription(
                 "A ringback tone is an audible indication that is heard on the telephone line by the caller while the phone they are calling is being rung. It is normally a repeated tone, designed to assure the calling party that the called party's line is ringing, although the ring-back tone may be out of sync with the ringing signal." );
 
+        _it_dialtone = new ToneSequence( parent );
+        _it_dialtone.addSegment( 1000, 425);
+        _it_dialtone.addSegment( 4000, 0 );
+        _it_dialtone.setDescription(
+                "A dial tone is a telephony signal used to indicate that the telephone exchange is working, has recognized an off-hook, and is ready to accept a call." );
+
         _it_ringback = new ToneSequence( parent );
-        _it_ringback.addSegment( 1000, 425 );
-        _it_ringback.addSegment( 200, 0 );
+        _it_ringback.addSegment( 600, 425 );
+        _it_ringback.addSegment( 1000, 0 );
         _it_ringback.addSegment( 200, 425 );
         _it_ringback.addSegment( 200, 0 );
         _it_ringback.setDescription(

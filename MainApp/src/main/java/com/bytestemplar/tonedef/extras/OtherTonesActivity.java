@@ -39,7 +39,8 @@ public class OtherTonesActivity extends TonePanelActivity
 
         defineButton( R.id.btnJPDialtone, R.id.btnJPDialtoneAbout, other_tones._jp_dialtone );
         defineButton( R.id.btnJPRingback, R.id.btnJPRingbackAbout, other_tones._jp_ringback );
-        defineButton( R.id.btnITDialtone, R.id.btnITDialtoneAbout, other_tones._it_ringback );
+        defineButton( R.id.btnITRingback, R.id.btnITRingbackAbout, other_tones._it_ringback );
+        defineButton( R.id.btnITDialtone, R.id.btnITDialtoneAbout, other_tones._it_dialtone );
         defineButton( R.id.btnDEDialtone, R.id.btnDEDialtoneAbout, other_tones._de_dialtone );
 
         setTitleText( other_tones._title );
