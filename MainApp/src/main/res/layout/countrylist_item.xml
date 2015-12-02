@@ -5,12 +5,14 @@
               android:orientation="vertical">
 
     <TextView
+        android:id="@+id/country_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/country_name"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
         android:text="NAME"
-        android:textStyle="bold"
         android:textSize="24sp"
+        android:textStyle="bold"
         />
 
 </LinearLayout>
