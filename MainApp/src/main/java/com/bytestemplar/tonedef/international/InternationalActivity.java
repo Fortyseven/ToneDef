@@ -196,6 +196,7 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
     private final int JP_DIALTONE_FREQ  = 400;
     private final int JP_RINGBACK_FREQ1 = 384;
     private final int JP_RINGBACK_FREQ2 = 416;
+    private final int JP_BUSY_FREQ      = 400;
 
     private CountryTones buildTonesJapan()
     {
@@ -213,6 +214,13 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
           .setDescription( RINGBACK_DESC );
 
         country.addSequence( "Ringback", ts );
+
+        ts = new ToneSequence( this );
+        ts.addSegment( 500, JP_BUSY_FREQ )
+          .addSegment( 500, 0 )
+          .setDescription( "" );
+
+        country.addSequence( "Busy", ts );
 
         return country;
     }
