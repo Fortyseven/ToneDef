@@ -14,6 +14,7 @@
 
 package com.bytestemplar.tonedef.international;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -90,6 +91,8 @@ public class ButtonsFragment extends Fragment
                 Button btn = new Button( ll_btn_container.getContext() );
                 btn.setText( sequence_name );
                 btn.setTypeface( _parent.getCustomTypeface() );
+                btn.setBackgroundResource( R.drawable.touchpadbutton );
+                btn.setTextColor( Color.WHITE );
                 btn.setOnTouchListener( new View.OnTouchListener()
                 {
                     @Override
@@ -98,10 +101,12 @@ public class ButtonsFragment extends Fragment
                         switch ( event.getAction() ) {
                             case MotionEvent.ACTION_DOWN:
                                 sequence.start();
+                                v.setBackgroundResource( R.drawable.touchpadbutton_selected );
                                 break;
                             case MotionEvent.ACTION_UP:
                             case MotionEvent.ACTION_CANCEL:
                                 sequence.stop();
+                                v.setBackgroundResource( R.drawable.touchpadbutton );
                                 break;
                         }
                         return false;
