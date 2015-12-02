@@ -129,7 +129,7 @@ public class ToneSequence implements Runnable
      * @param frequencies A varargs list of int frequencies to play
      *                    simultaneously.
      */
-    public synchronized void addSegment( int duration, int... frequencies )
+    public synchronized ToneSequence addSegment( int duration, int... frequencies )
     {
         Segment seg = new Segment();
 
@@ -144,6 +144,8 @@ public class ToneSequence implements Runnable
         seg.bookmark = _total_samples;
         //m_frequencies = frequencies;
         _segments.add( seg );
+
+        return this;
     }
 
     /**
