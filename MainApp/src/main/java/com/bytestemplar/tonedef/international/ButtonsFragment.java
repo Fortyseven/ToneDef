@@ -23,6 +23,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.bytestemplar.tonedef.R;
 import com.bytestemplar.tonedef.gen.ToneSequence;
@@ -34,12 +35,13 @@ import java.util.Map;
 public class ButtonsFragment extends Fragment
 {
     public static final String ARG_POSITION = "position";
+    private InternationalActivity _parent;
 
     @Nullable
     @Override
     public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState )
     {
-
+        _parent = (InternationalActivity) getActivity();
         return inflater.inflate( R.layout.frag_buttons, container, false );
     }
 
@@ -62,9 +64,18 @@ public class ButtonsFragment extends Fragment
         LinearLayout ll_btn_container = (LinearLayout) getView().findViewById( R.id.buttons_container );
 
         if ( ll_btn_container != null ) {
+
+
             ll_btn_container.removeAllViewsInLayout();
 
-            CountryTones ct = ( (InternationalActivity) getActivity() ).getCountryAtPosition( position );
+            CountryTones ct = _parent.getCountryAtPosition( position );
+
+            // Update label
+            TextView tv_name = (TextView) getView().findViewById( R.id.tv_countryname );
+            tv_name.setText( ct.getName() );
+            tv_name.setTypeface( _parent.getCustomTypeface() );
+
+            // Generate buttons
 
             HashMap<String, ToneSequence> sequences = ct.getSequences();
 
@@ -78,6 +89,7 @@ public class ButtonsFragment extends Fragment
 
                 Button btn = new Button( ll_btn_container.getContext() );
                 btn.setText( sequence_name );
+                btn.setTypeface( _parent.getCustomTypeface() );
                 btn.setOnTouchListener( new View.OnTouchListener()
                 {
                     @Override

@@ -25,17 +25,16 @@ import com.bytestemplar.tonedef.R;
 
 import java.util.ArrayList;
 
-/**
- * Created by Fortyseven on 2015-12-02.
- */
 public class CountryListAdapter extends BaseAdapter
 {
-    ArrayList<CountryTones> _countries;
+    private final InternationalActivity   _parent;
+    private       ArrayList<CountryTones> _countries;
 
-    public CountryListAdapter( ArrayList<CountryTones> countries )
+    public CountryListAdapter( ArrayList<CountryTones> countries, InternationalActivity parent )
     {
         Log.i( "BT", "Creating CountryListAdapter instance from " + countries );
         _countries = countries;
+        _parent = parent;
     }
 
     @Override
@@ -70,6 +69,7 @@ public class CountryListAdapter extends BaseAdapter
 
         TextView tv_name = (TextView) convertView.findViewById( R.id.country_name );
         tv_name.setText( country_name );
+        tv_name.setTypeface( _parent.getCustomTypeface() );
         return convertView;
     }
 }

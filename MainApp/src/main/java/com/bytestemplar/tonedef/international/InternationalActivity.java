@@ -14,6 +14,7 @@
 
 package com.bytestemplar.tonedef.international;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
@@ -21,23 +22,12 @@ import android.util.Log;
 
 import com.bytestemplar.tonedef.R;
 import com.bytestemplar.tonedef.gen.ToneSequence;
+import com.bytestemplar.tonedef.utils.UICustom;
 
 import java.util.ArrayList;
 
 public class InternationalActivity extends FragmentActivity implements CountryListFragment.OnCountrySelectedListener
 {
-    /**
-     *
-     */
-
-
-    private final int DE_DIALTONE_FREQ = 425;
-    private final int DE_RINGBACK_FREQ = 425;
-
-    private final int ITALY_FREQ = 425;
-
-    private final int JP_RINGBACK_FREQ1 = 384;
-    private final int JP_RINGBACK_FREQ2 = 416;
 
     private final String DIALTONE_DESC = "A dial tone is a telephony signal used to indicate that the telephone exchange is " +
                                          "working, has recognized an off-hook, and is ready to accept a call.";
@@ -49,12 +39,15 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
 
     private ArrayList<CountryTones> _country_tones;
     private CountryListAdapter      _country_list_adapter;
+    private Typeface                _ttf_dxb;
 
     /******************************************************************/
     @Override
     protected void onCreate( Bundle savedInstanceState )
     {
         super.onCreate( savedInstanceState );
+
+        this._ttf_dxb = Typeface.createFromAsset( this.getAssets(), UICustom.TYPEFACE_FILENAME );
 
         buildCountrySequences();
 
@@ -81,6 +74,11 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
         }
     }
 
+    /******************************************************************/
+    public Typeface getCustomTypeface()
+    {
+        return _ttf_dxb;
+    }
 
     /******************************************************************/
     public CountryListAdapter getCountryListAdapter()
@@ -127,33 +125,85 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
     {
         _country_tones = new ArrayList<CountryTones>( 0 );
 
-        CountryTones country;
-        ToneSequence ts;
+        _country_tones.add( buildTonesUnitedStates() );
+        _country_tones.add( buildTonesGermany() );
+        _country_tones.add( buildTonesJapan() );
+        _country_tones.add( buildTonesItaly() );
 
-        country = new CountryTones( "United States" );
-        ts = new ToneSequence( this );
+        _country_list_adapter = new CountryListAdapter( _country_tones, this );
+
+    }
+
+    /******************************************************************/
+    /******************************************************************/
+    /******************************************************************/
+
+    private CountryTones buildTonesUnitedStates()
+    {
+        CountryTones country = new CountryTones( "United States" );
+
+        ToneSequence ts = new ToneSequence( this );
         ts.addSegment( 250, 350, 440 )
           .setDescription( DIALTONE_DESC );
         country.addSequence( "Dialtone", ts );
 
-        _country_tones.add( country );
-
-        /************/
-        country = new CountryTones( "Germany" );
+        ts = new ToneSequence( this );
+        ts.addSegment( 2000, 440, 480 )
+          .addSegment( 4000, 0 )
+          .setDescription( DIALTONE_DESC );
+        country.addSequence( "Ringback", ts );
 
         ts = new ToneSequence( this );
+        ts.addSegment( 500, 480, 620 )
+          .addSegment( 500, 0 )
+          .setDescription( DIALTONE_DESC );
+        country.addSequence( "Busy", ts );
+
+
+        return country;
+    }
+
+    /******************************************************************/
+    private final int DE_DIALTONE_FREQ = 425;
+    private final int DE_RINGBACK_FREQ = 425;
+    private final int DE_BUSY_FREQ     = 425;
+
+    private CountryTones buildTonesGermany()
+    {
+        CountryTones country = new CountryTones( "Germany" );
+
+        ToneSequence ts = new ToneSequence( this );
         ts.addSegment( 250, DE_DIALTONE_FREQ )
           .setDescription( DIALTONE_DESC );
 
         country.addSequence( "Dialtone", ts );
 
-        _country_tones.add( country );
-
-        /************/
-        country = new CountryTones( "Japan" );
+        ts = new ToneSequence( this );
+        ts.addSegment( 1000, DE_RINGBACK_FREQ )
+          .addSegment( 4000, 0 )
+          .setDescription( RINGBACK_DESC );
+        country.addSequence( "Ringback", ts );
 
         ts = new ToneSequence( this );
-        ts.addSegment( 250, 400 )
+        ts.addSegment( 500, DE_BUSY_FREQ )
+          .addSegment( 500, 0 )
+          .setDescription( RINGBACK_DESC );
+        country.addSequence( "Busy", ts );
+
+        return country;
+    }
+
+    /******************************************************************/
+    private final int JP_DIALTONE_FREQ  = 400;
+    private final int JP_RINGBACK_FREQ1 = 384;
+    private final int JP_RINGBACK_FREQ2 = 416;
+
+    private CountryTones buildTonesJapan()
+    {
+        CountryTones country = new CountryTones( "Japan" );
+
+        ToneSequence ts = new ToneSequence( this );
+        ts.addSegment( 250, JP_DIALTONE_FREQ )
           .setDescription( DIALTONE_DESC );
 
         country.addSequence( "Dialtone", ts );
@@ -165,12 +215,17 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
 
         country.addSequence( "Ringback", ts );
 
-        _country_tones.add( country );
+        return country;
+    }
 
-        /************/
-        country = new CountryTones( "Italy" );
+    /******************************************************************/
+    private final int ITALY_FREQ = 425;
 
-        ts = new ToneSequence( this );
+    private CountryTones buildTonesItaly()
+    {
+        CountryTones country = new CountryTones( "Italy" );
+
+        ToneSequence ts = new ToneSequence( this );
         ts.addSegment( 1000, ITALY_FREQ )
           .addSegment( 4000, 0 )
           .setDescription( RINGBACK_DESC );
@@ -185,9 +240,6 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
           .setDescription( DIALTONE_DESC );
         country.addSequence( "Dialtone", ts );
 
-        _country_tones.add( country );
-
-        _country_list_adapter = new CountryListAdapter( _country_tones );
-
+        return country;
     }
 }
