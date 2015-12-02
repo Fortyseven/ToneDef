@@ -238,6 +238,13 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
           .setDescription( DIALTONE_DESC );
         country.addSequence( "Dialtone", ts );
 
+        ts = new ToneSequence( this );
+        ts.addSegment( 500, ITALY_FREQ )
+          .addSegment( 500, 0 )
+          .setDescription( "" );
+        country.addSequence( "Busy", ts );
+
+
         return country;
     }
 }
