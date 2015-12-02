@@ -20,6 +20,8 @@ import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ListView;
 
+import com.bytestemplar.tonedef.R;
+
 public class CountryListFragment extends ListFragment
 {
     public interface OnCountrySelectedListener
@@ -37,6 +39,13 @@ public class CountryListFragment extends ListFragment
         CountryListAdapter foo = ( (InternationalActivity) ( getActivity() ) ).getCountryListAdapter();
 
         setListAdapter( foo );
+    }
+
+    @Override
+    public void onViewCreated( View view, Bundle savedInstanceState )
+    {
+        super.onViewCreated( view, savedInstanceState );
+        getView().setBackgroundResource( R.drawable.grad_cyan );
     }
 
     @Override
