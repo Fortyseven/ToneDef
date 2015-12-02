@@ -64,7 +64,7 @@ public class ButtonsFragment extends Fragment
         if ( ll_btn_container != null ) {
             ll_btn_container.removeAllViewsInLayout();
 
-            InternationalActivity.CountryTones ct = ( (InternationalActivity) getActivity() ).getCountryAtPosition( position );
+            CountryTones ct = ( (InternationalActivity) getActivity() ).getCountryAtPosition( position );
 
             HashMap<String, ToneSequence> sequences = ct.getSequences();
 

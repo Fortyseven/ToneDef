@@ -17,7 +17,6 @@ package com.bytestemplar.tonedef.international;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
@@ -35,8 +34,7 @@ public class CountryListFragment extends ListFragment
     {
         super.onCreate( savedInstanceState );
 
-        InternationalActivity.CountryListAdapter foo = ( (InternationalActivity) ( getActivity() ) ).getCountryListAdapter();
-        Log.d( "BT", "Was I null? " + foo );
+        CountryListAdapter foo = ( (InternationalActivity) ( getActivity() ) ).getCountryListAdapter();
 
         setListAdapter( foo );
     }
