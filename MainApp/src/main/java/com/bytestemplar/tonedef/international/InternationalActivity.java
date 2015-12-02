@@ -125,10 +125,11 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
     {
         _country_tones = new ArrayList<>();
 
-        _country_tones.add( buildTonesUnitedStates() );
+
         _country_tones.add( buildTonesGermany() );
-        _country_tones.add( buildTonesJapan() );
         _country_tones.add( buildTonesItaly() );
+        _country_tones.add( buildTonesJapan() );
+        _country_tones.add( buildTonesUnitedStates() );
 
         _country_list_adapter = new CountryListAdapter( _country_tones, this );
 
