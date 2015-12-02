@@ -31,7 +31,13 @@ public class OtherTones
 
     public String _title = "Other Telephony";
 
+    private final int DE_DIALTONE_FREQ = 425;
+    private final int DE_RINGBACK_FREQ = 425;
+
     private final int ITALY_FREQ = 425;
+
+    private final int JP_RINGBACK_FREQ1 = 384;
+    private final int JP_RINGBACK_FREQ2 = 416;
 
     // TODO: Move these into a string resource. However, this whole section is going to be redone at some point, so it might not even be worth it.
 
@@ -45,19 +51,22 @@ public class OtherTones
 
     public OtherTones( Activity parent )
     {
+        /* GERMANY */
         _de_dialtone = new ToneSequence( parent );
-        _de_dialtone.addSegment( 250, 425 );
+        _de_dialtone.addSegment( 250, DE_DIALTONE_FREQ );
         _de_dialtone.setDescription( DIALTONE_DESC );
 
+        /* JAPAN */
         _jp_dialtone = new ToneSequence( parent );
         _jp_dialtone.addSegment( 250, 400 );
         _jp_dialtone.setDescription( DIALTONE_DESC );
 
         _jp_ringback = new ToneSequence( parent );
-        _jp_ringback.addSegment( 1000, 384, 416 );
+        _jp_ringback.addSegment( 1000, JP_RINGBACK_FREQ1, JP_RINGBACK_FREQ2 );
         _jp_ringback.addSegment( 2000, 0 );
         _jp_ringback.setDescription( RINGBACK_DESC );
 
+        /* ITALY */
         _it_ringback = new ToneSequence( parent );
         _it_ringback.addSegment( 1000, ITALY_FREQ );
         _it_ringback.addSegment( 4000, 0 );
