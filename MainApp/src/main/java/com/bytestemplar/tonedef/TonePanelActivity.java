@@ -31,6 +31,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bytestemplar.tonedef.gen.ToneSequence;
+import com.bytestemplar.tonedef.utils.UICustom;
 
 import java.util.HashMap;
 
@@ -51,7 +52,7 @@ public class TonePanelActivity extends Activity
         this._momentary_buttons = new HashMap<Integer, ToneSequence>();
         this._about_buttons = new HashMap<Integer, ToneSequence>();
 
-        this._ttf_dxb = Typeface.createFromAsset( this.getAssets(), "c64.ttf" );
+        this._ttf_dxb = Typeface.createFromAsset( this.getAssets(), UICustom.TYPEFACE_FILENAME );
 
         this._button_press = new OnTouchListener()
         {
