@@ -18,7 +18,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 
 import com.bytestemplar.tonedef.R;
 import com.bytestemplar.tonedef.gen.ToneSequence;
@@ -55,7 +54,6 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
 
         // Single view UI
         if ( findViewById( R.id.frag_container ) != null ) {
-            Log.d( "BT", "SIngle view" );
             if ( savedInstanceState != null ) {
                 return;
             }
@@ -70,7 +68,7 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
                     .commit();
         }
         else {
-            Log.d( "BT", "Multi view" );
+            //Log.d( "BT", "Multi view" );
         }
     }
 
@@ -96,8 +94,6 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
     @Override
     public void onCountrySelected( int position )
     {
-        Log.i( "BT", "Selected: " + position );
-
         ButtonsFragment buttons_fragment = (ButtonsFragment) getSupportFragmentManager().findFragmentById( R.id.frag_buttons );
 
         if ( buttons_fragment != null ) {

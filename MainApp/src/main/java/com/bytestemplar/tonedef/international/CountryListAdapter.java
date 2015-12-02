@@ -14,7 +14,6 @@
 
 package com.bytestemplar.tonedef.international;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +31,6 @@ public class CountryListAdapter extends BaseAdapter
 
     public CountryListAdapter( ArrayList<CountryTones> countries, InternationalActivity parent )
     {
-        Log.i( "BT", "Creating CountryListAdapter instance from " + countries );
         _countries = countries;
         _parent = parent;
     }
@@ -46,7 +44,6 @@ public class CountryListAdapter extends BaseAdapter
     @Override
     public Object getItem( int position )
     {
-        Log.i( "BT", "getitem " + position );
         return _countries.get( position ).getName();
     }
 
@@ -59,7 +56,6 @@ public class CountryListAdapter extends BaseAdapter
     @Override
     public View getView( int position, View convertView, ViewGroup parent )
     {
-        Log.i( "BT", "getView " + position );
         String country_name = (String) getItem( position );
 
         if ( convertView == null ) {
