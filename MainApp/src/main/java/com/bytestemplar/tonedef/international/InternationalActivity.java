@@ -123,7 +123,7 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
     /******************************************************************/
     private void buildCountrySequences()
     {
-        _country_tones = new ArrayList<CountryTones>( 0 );
+        _country_tones = new ArrayList<>();
 
         _country_tones.add( buildTonesUnitedStates() );
         _country_tones.add( buildTonesGermany() );
@@ -156,7 +156,7 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
         ts = new ToneSequence( this );
         ts.addSegment( 500, 480, 620 )
           .addSegment( 500, 0 )
-          .setDescription( DIALTONE_DESC );
+          .setDescription( "" );
         country.addSequence( "Busy", ts );
 
 
@@ -164,30 +164,28 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
     }
 
     /******************************************************************/
-    private final int DE_DIALTONE_FREQ = 425;
-    private final int DE_RINGBACK_FREQ = 425;
-    private final int DE_BUSY_FREQ     = 425;
+    private final int DE_FREQ = 425;
 
     private CountryTones buildTonesGermany()
     {
         CountryTones country = new CountryTones( "Germany" );
 
         ToneSequence ts = new ToneSequence( this );
-        ts.addSegment( 250, DE_DIALTONE_FREQ )
+        ts.addSegment( 250, DE_FREQ )
           .setDescription( DIALTONE_DESC );
 
         country.addSequence( "Dialtone", ts );
 
         ts = new ToneSequence( this );
-        ts.addSegment( 1000, DE_RINGBACK_FREQ )
+        ts.addSegment( 1000, DE_FREQ )
           .addSegment( 4000, 0 )
           .setDescription( RINGBACK_DESC );
         country.addSequence( "Ringback", ts );
 
         ts = new ToneSequence( this );
-        ts.addSegment( 500, DE_BUSY_FREQ )
+        ts.addSegment( 500, DE_FREQ )
           .addSegment( 500, 0 )
-          .setDescription( RINGBACK_DESC );
+          .setDescription( "" );
         country.addSequence( "Busy", ts );
 
         return country;
