@@ -8,7 +8,7 @@
         android:fillViewport="true"
         android:scrollbarAlwaysDrawVerticalTrack="true"
         android:scrollbarStyle="insideInset"
-        android:background="@drawable/grad_green"
+
         android:scrollbars="vertical">
 
     <LinearLayout

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ToneDef</string>
-    <string name="version">Release 13</string>
+    <string name="version">Release 14</string>
     <string name="about_whatsnew">What\'s New?</string>
     <string name="about_whatsnew_text">
-        - Fixed freezing on some devices after audio playback
-        - Fixed bluebox KP/ST issues (thanks zipcode!)\n\n
-        - Added * and # as aliases for bluebox dialstring (thanks zipcode!)\n\n
+        - Skipped 13 due to release mistake. :)\n\n
+        - Replaced \'Extras\' content with new International tones! With little 8-bit flags! Wee!\n\n
+        - Fixed Italian tones. Hopefully. (Thanks LuccoJ!)\n\n
+        - Fixed freezing on some devices after audio playback\n\n
+        - Fixed bluebox KP/ST issues (Thanks zipcode!)\n\n
+        - Added * and # as aliases for bluebox dialstring (Thanks zipcode!)\n\n
         - Fixed font issue on redbox screen for older devices\n\n
         - Fixed a memory leak, and dreased memory usage\n\n
         - Fixed a couple non-user facing issues on older devices\n\n

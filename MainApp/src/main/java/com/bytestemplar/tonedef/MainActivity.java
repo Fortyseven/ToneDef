@@ -23,7 +23,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 
-import com.bytestemplar.tonedef.extras.ExtrasActivity;
+import com.bytestemplar.tonedef.international.InternationalActivity;
 import com.bytestemplar.tonedef.utils.UICustom;
 
 public class MainActivity extends Activity
@@ -93,6 +93,6 @@ public class MainActivity extends Activity
 
     public void clickExtras( View view )
     {
-        startActivity( new Intent( view.getContext(), ExtrasActivity.class ) );
+        startActivity( new Intent( view.getContext(), InternationalActivity.class ) );
     }
 }
