@@ -35,6 +35,7 @@ public class CountryListFragment extends ListFragment
     public void onCreate( Bundle savedInstanceState )
     {
         super.onCreate( savedInstanceState );
+        setRetainInstance( true );
 
         CountryListAdapter foo = ( (InternationalActivity) ( getActivity() ) ).getCountryListAdapter();
 

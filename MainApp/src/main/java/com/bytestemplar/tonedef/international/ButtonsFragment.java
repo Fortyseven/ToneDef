@@ -36,6 +36,8 @@ import java.util.Map;
 public class ButtonsFragment extends Fragment
 {
     public static final String ARG_POSITION = "position";
+
+    private int                   _current_position;
     private InternationalActivity _parent;
 
     @Nullable
@@ -51,13 +53,28 @@ public class ButtonsFragment extends Fragment
     {
         super.onViewCreated( view, savedInstanceState );
 
-        Bundle args = getArguments();
+        TextView tv_name = (TextView) getView().findViewById( R.id.tv_countryname );
+        tv_name.setTypeface( _parent.getCustomTypeface() );
 
-        if ( args != null ) {
+        int position = -1;
 
-            int position = getArguments().getInt( ARG_POSITION );
+        if ( savedInstanceState != null ) {
+            position = savedInstanceState.getInt( ARG_POSITION );
+
+        }
+        else {
+            Bundle args = getArguments();
+            if ( args != null ) {
+                position = getArguments().getInt( ARG_POSITION );
+            }
+        }
+
+        if ( position >= 0 ) {
+
             updateButtons( position );
         }
+
+
     }
 
     public void updateButtons( int position )
@@ -66,6 +83,7 @@ public class ButtonsFragment extends Fragment
 
         if ( ll_btn_container != null ) {
 
+            _current_position = position;
 
             ll_btn_container.removeAllViewsInLayout();
 
@@ -75,6 +93,9 @@ public class ButtonsFragment extends Fragment
             TextView tv_name = (TextView) getView().findViewById( R.id.tv_countryname );
             tv_name.setText( ct.getName() );
             tv_name.setTypeface( _parent.getCustomTypeface() );
+            if ( ct.getFlagDrawable() > 0 ) {
+                tv_name.setCompoundDrawablesWithIntrinsicBounds( ct.getFlagDrawable(), 0, 0, 0 );
+            }
 
             // Generate buttons
 
@@ -116,5 +137,12 @@ public class ButtonsFragment extends Fragment
                 ll_btn_container.addView( btn );
             }
         }
+    }
+
+    public void onSaveInstanceState( Bundle out_state )
+    {
+        super.onSaveInstanceState( out_state );
+
+        out_state.putInt( ARG_POSITION, _current_position );
     }
 }
