@@ -156,6 +156,7 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
           .setDescription( "" );
         country.addSequence( "Busy", ts );
 
+        country.setFlagDrawable( R.drawable.flag_usa );
 
         return country;
     }
@@ -184,6 +185,8 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
           .addSegment( 500, 0 )
           .setDescription( "" );
         country.addSequence( "Busy", ts );
+
+        country.setFlagDrawable( R.drawable.flag_germany );
 
         return country;
     }
@@ -218,6 +221,7 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
 
         country.addSequence( "Busy", ts );
 
+        country.setFlagDrawable( R.drawable.flag_japan );
         return country;
     }
 
@@ -249,6 +253,7 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
           .setDescription( "" );
         country.addSequence( "Busy", ts );
 
+        country.setFlagDrawable( R.drawable.flag_italy );
 
         return country;
     }

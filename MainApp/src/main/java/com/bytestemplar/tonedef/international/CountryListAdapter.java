@@ -47,6 +47,11 @@ public class CountryListAdapter extends BaseAdapter
         return _countries.get( position ).getName();
     }
 
+    public int getItemFlagDrawable( int position )
+    {
+        return _countries.get( position ).getFlagDrawable();
+    }
+
     @Override
     public long getItemId( int position )
     {
@@ -65,6 +70,12 @@ public class CountryListAdapter extends BaseAdapter
 
         TextView tv_name = (TextView) convertView.findViewById( R.id.country_name );
         tv_name.setText( country_name );
+
+        int flag_drawable = getItemFlagDrawable( position );
+        if ( flag_drawable > 0 ) {
+            //tv_name.setCompoundDrawablesWithIntrinsicBounds( parent.getContext().getResources().getDrawable( flag_drawable ), null, null, null );
+            tv_name.setCompoundDrawablesWithIntrinsicBounds( flag_drawable, 0, 0, 0 );
+        }
         tv_name.setTypeface( _parent.getCustomTypeface() );
         return convertView;
     }

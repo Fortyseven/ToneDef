@@ -15,12 +15,11 @@
 package com.bytestemplar.tonedef.international;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ListView;
-
-import com.bytestemplar.tonedef.R;
 
 public class CountryListFragment extends ListFragment
 {
@@ -46,7 +45,7 @@ public class CountryListFragment extends ListFragment
     public void onViewCreated( View view, Bundle savedInstanceState )
     {
         super.onViewCreated( view, savedInstanceState );
-        getView().setBackgroundResource( R.drawable.grad_cyan );
+        getView().setBackgroundColor( Color.rgb( 221, 221, 221 ) );
     }
 
     @Override
