@@ -68,7 +68,7 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
                     .commit();
         }
         else {
-            //Log.d( "BT", "Multi view" );
+            //CountryListFragment country_list_frag = (CountryListFragment) getSupportFragmentManager().findFragmentByTag( "country_list_frag" );
         }
     }
 
@@ -135,6 +135,7 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
     /******************************************************************/
     /******************************************************************/
 
+    // Much thanks to World Tone Database: http://www.3amsystems.com/World_Tone_Database
     private CountryTones buildTonesUnitedStates()
     {
         CountryTones country = new CountryTones( "United States" );
@@ -155,6 +156,47 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
           .addSegment( 500, 0 )
           .setDescription( "" );
         country.addSequence( "Busy", ts );
+
+        ts = new ToneSequence( this );
+        ts.addSegment( 380, 914 )
+          .addSegment( 276, 1429 )
+          .addSegment( 380, 1777 )
+          .addSegment( 2000, 0 )
+          .setDescription( "" );
+        country.addSequence( "SIS - Ineffective", ts );
+
+        ts = new ToneSequence( this );
+        ts.addSegment( 276, 914 )
+          .addSegment( 276, 1371 )
+          .addSegment( 380, 1777 )
+          .addSegment( 2000, 0 )
+          .setDescription( "" );
+        country.addSequence( "SIS - Intercept", ts );
+
+        ts = new ToneSequence( this );
+        ts.addSegment( 380, 985 )
+          .addSegment( 380, 1429 )
+          .addSegment( 380, 1777 )
+          .addSegment( 2000, 0 )
+          .setDescription( "" );
+        country.addSequence( "SIS - No Circuit", ts );
+
+        ts = new ToneSequence( this );
+        ts.addSegment( 100, 1400, 2060, 2450, 2600 )
+          .addSegment( 100, 0 )
+          .setDescription( "" );
+        country.addSequence( "Off Hook", ts );
+
+        ts = new ToneSequence( this );
+        ts.addSegment( 100, 350, 440 )
+          .addSegment( 100, 0 )
+          .addSegment( 100, 350, 440 )
+          .addSegment( 100, 0 )
+          .addSegment( 100, 350, 440 )
+          .addSegment( 100, 0 )
+          .addSegment( 6000, 350, 440 )
+          .setDescription( "" );
+        country.addSequence( "Recall Tone", ts );
 
         country.setFlagDrawable( R.drawable.flag_usa );
 
