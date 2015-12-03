@@ -30,9 +30,5 @@
         <activity android:name="com.bytestemplar.tonedef.BlueBoxActivity"/>
         <activity android:name="com.bytestemplar.tonedef.AboutActivity"/>
         <activity android:name="com.bytestemplar.tonedef.international.InternationalActivity"/>
-        <activity android:name="com.bytestemplar.tonedef.extras.USTonesActivity"/>
-        <activity android:name="com.bytestemplar.tonedef.extras.UKTonesActivity"/>
-        <activity android:name="com.bytestemplar.tonedef.extras.OtherTonesActivity"/>
-        <activity android:name="com.bytestemplar.tonedef.extras.ExtrasActivity"/>
     </application>
 </manifest>
