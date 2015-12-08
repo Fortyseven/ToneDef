@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 
+import com.bytestemplar.tonedef.international.CountryTonesRepository;
 import com.bytestemplar.tonedef.international.InternationalActivity;
 import com.bytestemplar.tonedef.utils.UICustom;
 
@@ -39,6 +40,7 @@ public class MainActivity extends Activity
 
         UICustom.init( this );
         UICustom.getInstance().updateActivity( this );
+        CountryTonesRepository.getInstance( this );
 
         showWhatsNew();
     }

@@ -21,18 +21,17 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.bytestemplar.tonedef.R;
+import com.bytestemplar.tonedef.utils.UICustom;
 
 import java.util.ArrayList;
 
 public class CountryListAdapter extends BaseAdapter
 {
-    private final InternationalActivity   _parent;
-    private       ArrayList<CountryTones> _countries;
+    private ArrayList<CountryTones> _countries;
 
-    public CountryListAdapter( ArrayList<CountryTones> countries, InternationalActivity parent )
+    public CountryListAdapter( ArrayList<CountryTones> countries )
     {
         _countries = countries;
-        _parent = parent;
     }
 
     @Override
@@ -76,7 +75,7 @@ public class CountryListAdapter extends BaseAdapter
             //tv_name.setCompoundDrawablesWithIntrinsicBounds( parent.getContext().getResources().getDrawable( flag_drawable ), null, null, null );
             tv_name.setCompoundDrawablesWithIntrinsicBounds( flag_drawable, 0, 0, 0 );
         }
-        tv_name.setTypeface( _parent.getCustomTypeface() );
+        tv_name.setTypeface( UICustom.getInstance().getTypeface() );
         return convertView;
     }
 }

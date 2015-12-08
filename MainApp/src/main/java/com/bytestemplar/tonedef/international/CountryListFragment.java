@@ -25,7 +25,7 @@ public class CountryListFragment extends ListFragment
 {
     public interface OnCountrySelectedListener
     {
-        public void onCountrySelected( int position );
+        void onCountrySelected( int position );
     }
 
     OnCountrySelectedListener mCallback;
@@ -34,9 +34,9 @@ public class CountryListFragment extends ListFragment
     public void onCreate( Bundle savedInstanceState )
     {
         super.onCreate( savedInstanceState );
-        setRetainInstance( true );
+        //setRetainInstance( true );
 
-        CountryListAdapter foo = ( (InternationalActivity) ( getActivity() ) ).getCountryListAdapter();
+        CountryListAdapter foo = CountryTonesRepository.getInstance().getCountryListAdapter();
 
         setListAdapter( foo );
     }
@@ -66,4 +66,11 @@ public class CountryListFragment extends ListFragment
         mCallback.onCountrySelected( position );
         getListView().setItemChecked( position, true );
     }
+
+    @Override
+    public void onSaveInstanceState( Bundle out_state )
+    {
+        super.onSaveInstanceState( out_state );
+    }
+
 }

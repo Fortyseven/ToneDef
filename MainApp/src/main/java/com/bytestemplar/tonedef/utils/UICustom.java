@@ -60,6 +60,10 @@ public class UICustom
         updateViewHierarchy( root );
     }
 
+    public Typeface getTypeface() {
+        return _font;
+    }
+
     private void updateViewHierarchy( ViewGroup root )
     {
         for ( int c = 0; c < root.getChildCount(); c++ ) {

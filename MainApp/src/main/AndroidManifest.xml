@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.bytestemplar.tonedef"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest
+    package="com.bytestemplar.tonedef"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-feature
         android:name="android.hardware.touchscreen"
@@ -16,7 +17,7 @@
         android:label="@string/app_name"
         android:windowSoftInputMode="stateHidden">
         <activity
-            android:name="com.bytestemplar.tonedef.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -24,11 +25,14 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.bytestemplar.tonedef.DTMFActivity"/>
-        <activity android:name="com.bytestemplar.tonedef.ConfigActivity"/>
-        <activity android:name="com.bytestemplar.tonedef.RedBoxActivity"/>
-        <activity android:name="com.bytestemplar.tonedef.BlueBoxActivity"/>
-        <activity android:name="com.bytestemplar.tonedef.AboutActivity"/>
-        <activity android:name="com.bytestemplar.tonedef.international.InternationalActivity"/>
+        <activity android:name=".DTMFActivity"/>
+        <activity android:name=".ConfigActivity"/>
+        <activity android:name=".RedBoxActivity"/>
+        <activity android:name=".BlueBoxActivity"/>
+        <activity android:name=".AboutActivity"/>
+        <activity android:name=".international.InternationalActivity"/>
+        <activity android:name=".international.ButtonActivity">
+        </activity>
     </application>
+
 </manifest>
