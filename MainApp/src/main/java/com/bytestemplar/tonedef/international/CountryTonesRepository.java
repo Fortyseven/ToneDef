@@ -28,6 +28,7 @@ public class CountryTonesRepository
     private ArrayList<CountryTones> _country_tones;
     private CountryListAdapter      _country_list_adapter;
 
+    /******************************************************************/
     public static CountryTonesRepository getInstance()
     {
         if ( instance == null ) {
@@ -36,6 +37,7 @@ public class CountryTonesRepository
         return instance;
     }
 
+    /******************************************************************/
     public static CountryTonesRepository getInstance( Activity owner )
     {
         if ( CountryTonesRepository.instance == null ) {
@@ -63,7 +65,6 @@ public class CountryTonesRepository
         _ownerActivity = owner;
         buildCountrySequences();
     }
-
 
     /******************************************************************/
     private void buildCountrySequences()
