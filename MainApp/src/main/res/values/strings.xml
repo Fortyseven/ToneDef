@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ToneDef</string>
-    <string name="version">Release 14</string>
+    <string name="version">Release 15</string>
     <string name="about_whatsnew">What\'s New?</string>
     <string name="about_whatsnew_text">
         - Skipped 13 due to release mistake. :)\n\n
