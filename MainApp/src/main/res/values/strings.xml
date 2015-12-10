@@ -73,4 +73,16 @@
     <string name="off_hook">Off Hook</string>
     <string name="recall_tone">Recall Tone</string>
     <string name="desc_ringback">A ringback tone is an audible indication that is heard on the telephone line by the caller while the phone they are calling is being rung. It is normally a repeated tone, designed to assure the calling party that the called party\'s line is ringing, although the ring-back tone may be out of sync with the ringing signal.</string>
+    <string name="country_uk">UK</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="call_waiting">Call Waiting</string>
+    <string name="congestion">Congestion</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="refusal_switching">Refusal/Switching</string>
+    <string name="number_unobtainable">Number Unobtainable</string>
+    <string name="pay_tone">Pay Tone</string>
+    <string name="payphone_recognition">Payphone Recognition</string>
+    <string name="positive_accepted">Positive/Accepted</string>
+    <string name="special_dial_tone">Special Dial Tone</string>
+    <string name="special_information">Special Information</string>
 </resources>
