@@ -4,22 +4,13 @@
     <string name="version">Release 15</string>
     <string name="about_whatsnew">What\'s New?</string>
     <string name="about_whatsnew_text">
-        - Skipped 13 due to release mistake. :)\n\n
-        - Replaced \'Extras\' content with new International tones! With little 8-bit flags! Wee!\n\n
-        - Fixed Italian tones. Hopefully. (Thanks LuccoJ!)\n\n
-        - Fixed freezing on some devices after audio playback\n\n
-        - Fixed bluebox KP/ST issues (Thanks zipcode!)\n\n
-        - Added * and # as aliases for bluebox dialstring (Thanks zipcode!)\n\n
-        - Fixed font issue on redbox screen for older devices\n\n
-        - Fixed a memory leak, and dreased memory usage\n\n
-        - Fixed a couple non-user facing issues on older devices\n\n
-        - Optimizations should give increased performance on older devices\n\n
-        - Builds are now also available on F-Droid\n\n
+        - Restored UK tones (and added a bunch of new ones)\n\n
+        - New tones for USA\n\n
     </string>
     <string name="about_knownissues">Known Issues</string>
         <string name="about_knownissues_text">
-            * Playback on older/lower-spec devices (HTC Hero, G1, etc) is sketchy.\n\n
-            * Slight \'clicking\' sound audible between tone and silence on some devices; possible fix forthcoming.
+            - Playback on older/lower-spec devices (HTC Hero, G1, etc) is sketchy.\n\n
+            - Slight \'clicking\' sound audible between tone and silence on some devices; possible fix forthcoming.
         </string>
     <string name="skrillex">CORE</string>
     <string name="no_contact">No phone number associated with contact.</string>
