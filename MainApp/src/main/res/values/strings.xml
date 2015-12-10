@@ -85,4 +85,7 @@
     <string name="positive_accepted">Positive/Accepted</string>
     <string name="special_dial_tone">Special Dial Tone</string>
     <string name="special_information">Special Information</string>
+    <string name="congestion_fast_busy_disconnect">Congestion/Fast Busy/Disconnect</string>
+    <string name="record">Record</string>
+    <string name="warning">Warning</string>
 </resources>
