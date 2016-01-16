@@ -57,7 +57,7 @@ public abstract class TouchPadActivity extends Activity implements OnTouchListen
 
     protected SharedPreferences _preferences = null;
 
-    private EditText _et_dialing_string = null;
+    protected EditText _et_dialing_string = null;
 
     private ToneButtonList _buttons = null;
 
@@ -166,8 +166,10 @@ public abstract class TouchPadActivity extends Activity implements OnTouchListen
     {
         if ( digits.length() > 0 ) {
             // Do not start playing again if sequence is in-progress
-            if (_generated_dial_sequence != null) {
-                if (_generated_dial_sequence.isPlaying()) return;
+            if ( _generated_dial_sequence != null ) {
+                if ( _generated_dial_sequence.isPlaying() ) {
+                    return;
+                }
             }
 
             _generated_dial_sequence =

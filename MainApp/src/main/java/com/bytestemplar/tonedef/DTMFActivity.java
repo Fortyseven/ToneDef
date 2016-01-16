@@ -16,7 +16,9 @@
 
 package com.bytestemplar.tonedef;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.bytestemplar.tonedef.tones.ToneBankDTMF;
@@ -47,7 +49,51 @@ public class DTMFActivity extends TouchPadActivity
         catch ( Exception e ) {
             Alert.show( this, "Error setting up TouchPadActivity:" + e.toString() );
         }
+
         handleExtendedDTMFButtons();
+
+        handleIncomingContactData();
+    }
+
+    private void handleIncomingContactData()
+    {
+        Intent i      = getIntent();
+        String action = i.getAction();
+        String type   = getIntent().getType();
+
+        if ( i == null || action == null ) {
+            return;
+        }
+        if ( action.equals( Intent.ACTION_SEND ) && type.equals( "text/x-vcard" ) ) {
+            Intent intent = new Intent( this, ContactSelectActivity.class );
+            intent.putExtra( Intent.EXTRA_STREAM,
+                             i.getExtras().getParcelable( Intent.EXTRA_STREAM ) );
+            startActivityForResult( intent, ContactSelectActivity.RESULT_CODE_CONTACT_SELECT_OK );
+        }
+    }
+
+    @Override
+    protected void onActivityResult( int requestCode, int resultCode, Intent data )
+    {
+        super.onActivityResult( requestCode, resultCode, data );
+
+        if ( resultCode == ContactSelectActivity.RESULT_CODE_CONTACT_SELECT_OK ) {
+
+            Bundle extras = data.getExtras();
+
+            if ( extras != null ) {
+                setDialString( extras.getString( "number" ) );
+            }
+            else {
+                Log.e( "BT", "NO EXTRAS" );
+            }
+        }
+    }
+
+    private void setDialString( String number )
+    {
+        _et_dialing_string.setText( number );
+        //clickDial( null );
     }
 
     @Override
