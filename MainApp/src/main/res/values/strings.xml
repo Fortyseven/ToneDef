@@ -79,4 +79,5 @@
     <string name="congestion_fast_busy_disconnect">Congestion/Fast Busy/Disconnect</string>
     <string name="record">Record</string>
     <string name="warning">Warning</string>
+    <string name="contactreceiver_select_a_numer">Select a Number</string>
 </resources>

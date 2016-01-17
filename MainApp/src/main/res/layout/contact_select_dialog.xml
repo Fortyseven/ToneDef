@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="10dp"
-        android:text="Select a Number"
+        android:text="@string/contactreceiver_select_a_numer"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textStyle="bold"
         />
