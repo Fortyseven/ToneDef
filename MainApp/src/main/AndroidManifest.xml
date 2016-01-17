@@ -16,6 +16,7 @@
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:windowSoftInputMode="stateHidden">
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
@@ -30,6 +31,15 @@
                 <category android:name="android.intent.category.DEFAULT"/>
                 <data android:mimeType="text/x-vcard"/>
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.DIAL"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="tel"/>
+            </intent-filter>
         </activity>
         <activity android:name=".ConfigActivity"/>
         <activity android:name=".RedBoxActivity"/>
@@ -39,8 +49,8 @@
             android:name=".ContactSelectActivity"
             android:theme="@style/Theme.AppCompat.Dialog"/>
         <activity android:name=".international.InternationalActivity"/>
-        <activity android:name=".international.ButtonActivity">
-        </activity>
+        <activity android:name=".international.ButtonActivity"/>
+
     </application>
 
 </manifest>

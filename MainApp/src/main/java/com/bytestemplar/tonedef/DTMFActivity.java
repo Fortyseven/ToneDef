@@ -52,10 +52,10 @@ public class DTMFActivity extends TouchPadActivity
 
         handleExtendedDTMFButtons();
 
-        handleIncomingContactData();
+        handleIncomingIntents();
     }
 
-    private void handleIncomingContactData()
+    private void handleIncomingIntents()
     {
         Intent i      = getIntent();
         String action = i.getAction();
@@ -64,12 +64,24 @@ public class DTMFActivity extends TouchPadActivity
         if ( i == null || action == null ) {
             return;
         }
+
+        /* Handle incoming v-card "contact" shares */
         if ( action.equals( Intent.ACTION_SEND ) && type.equals( "text/x-vcard" ) ) {
             Intent intent = new Intent( this, ContactSelectActivity.class );
             intent.putExtra( Intent.EXTRA_STREAM,
                              i.getExtras().getParcelable( Intent.EXTRA_STREAM ) );
             startActivityForResult( intent, ContactSelectActivity.RESULT_CODE_CONTACT_SELECT_OK );
         }
+        /* Handle incoming 'dialer' requests from tel: links */
+        else if ( action.equals( Intent.ACTION_VIEW ) ) {
+            String number = i.getDataString();
+            if ( number.startsWith( "tel:" ) ) {
+                Log.i( "BT", "Received dialing request; data = " + number );
+                setDialString( number.substring( number.indexOf( ':' ) + 1 ) );
+            }
+        }
+
+
     }
 
     @Override
