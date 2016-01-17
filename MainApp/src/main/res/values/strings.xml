@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ToneDef</string>
-    <string name="version">Release 15</string>
+    <string name="version">Release 16</string>
     <string name="about_whatsnew">What\'s New?</string>
     <string name="about_whatsnew_text">
-        - Restored UK tones (and added a bunch of new ones)\n\n
-        - New tones for USA\n\n
+        - You can now share a contact TO ToneDef (requested by steelman).\n\n
     </string>
     <string name="about_knownissues">Known Issues</string>
         <string name="about_knownissues_text">
