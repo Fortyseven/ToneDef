@@ -91,7 +91,7 @@ public class ToneBank
                 return entry;
             }
         }
-        Log.e( TAG, LOGPREFIX + "Invalid tonebank entry: " + ch );
+        Log.w( TAG, LOGPREFIX + "Invalid tonebank entry: " + ch );
         return null;
     }
 
