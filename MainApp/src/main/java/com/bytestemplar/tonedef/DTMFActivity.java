@@ -80,8 +80,6 @@ public class DTMFActivity extends TouchPadActivity
                 setDialString( number.substring( number.indexOf( ':' ) + 1 ) );
             }
         }
-
-
     }
 
     @Override
