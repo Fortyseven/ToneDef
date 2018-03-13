@@ -48,6 +48,8 @@ import com.bytestemplar.tonedef.gen.ToneSequence;
 import com.bytestemplar.tonedef.tones.ToneBank;
 import com.bytestemplar.tonedef.utils.UICustom;
 
+import static android.text.InputType.TYPE_CLASS_TEXT;
+
 public abstract class TouchPadActivity extends Activity implements OnTouchListener
 {
     protected static final boolean DISABLE_DIALINGSTRING = true;
@@ -96,6 +98,7 @@ public abstract class TouchPadActivity extends Activity implements OnTouchListen
         _preferences = PreferenceManager.getDefaultSharedPreferences( this );
 
         _et_dialing_string = (EditText) findViewById( R.id.etDialingString );
+        _et_dialing_string.setInputType(TYPE_CLASS_TEXT);
         _buttons = new ToneButtonList( this );
     }
 
