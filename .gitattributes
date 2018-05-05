@@ -1,0 +1,5 @@
+*.java diff
+*.xml diff
+*.iml diff
+*.gradle diff
+*.properties diff
