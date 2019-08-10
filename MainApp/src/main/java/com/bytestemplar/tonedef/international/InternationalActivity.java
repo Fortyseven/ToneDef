@@ -17,7 +17,7 @@ package com.bytestemplar.tonedef.international;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import androidx.fragment.app.FragmentActivity;
 
 import com.bytestemplar.tonedef.R;
 import com.bytestemplar.tonedef.utils.UICustom;

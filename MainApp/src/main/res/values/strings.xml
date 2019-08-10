@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ToneDef</string>
-    <string name="version">Release 17</string>
+    <string name="version">Release 18</string>
     <string name="about_whatsnew">What\'s New?</string>
     <string name="about_whatsnew_text">
+        - Changes to appease the Play Store
         - Tone playback is now more stable on long presses. (Thanks, tildearrow!)\n
         - Sequence dialing now parses extended DTMF; no longer forces digits-only input. (Thanks, Tomino2112!)\n\n
     </string>

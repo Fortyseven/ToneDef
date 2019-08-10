@@ -15,7 +15,7 @@
 package com.bytestemplar.tonedef.international;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import androidx.fragment.app.FragmentActivity;
 
 public class ButtonActivity extends FragmentActivity
 {
