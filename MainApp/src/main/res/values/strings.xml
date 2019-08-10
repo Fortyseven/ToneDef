@@ -4,7 +4,8 @@
     <string name="version">Release 17</string>
     <string name="about_whatsnew">What\'s New?</string>
     <string name="about_whatsnew_text">
-        - Tone playback is now more stable on long presses. (Thanks, tildearrow!)\n\n
+        - Tone playback is now more stable on long presses. (Thanks, tildearrow!)\n
+        - Sequence dialing now parses extended DTMF; no longer forces digits-only input. (Thanks, Tomino2112!)\n\n
     </string>
     <string name="about_knownissues">Known Issues</string>
         <string name="about_knownissues_text">
