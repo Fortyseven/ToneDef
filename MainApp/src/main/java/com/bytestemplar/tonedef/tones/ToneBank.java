@@ -103,14 +103,16 @@ public class ToneBank
         SequenceDefinition pause   = new SequenceDefinition( pause_duration, 0 );
 
         for ( int i = 0; i < digits.length(); i++ ) {
-            if ( digits.charAt( i ) == ';' || digits.charAt( i ) == 'W' ) {
+            char this_char = digits.toUpperCase().charAt( i );
+
+            if ( this_char == ';' || this_char == 'W' ) {
                 seq.addUserWaitSegment();
             }
-            else if ( digits.charAt( i ) == ',' || digits.charAt( i ) == 'P' ) {
+            else if ( this_char == ',' || this_char == 'P' ) {
                 seq.addSegment( pause );
             }
-            else if ( getEntry( digits.charAt( i ) ) != null ) {
-                SequenceDefinition tone = getEntry( digits.charAt( i ) )._definition;
+            else if ( getEntry( this_char ) != null ) {
+                SequenceDefinition tone = getEntry( this_char )._definition;
                 tone.setDuration( on_duration );
                 seq.addSegment( tone );
                 seq.addSegment( silence );
