@@ -26,8 +26,6 @@ import com.bytestemplar.tonedef.utils.UICustom;
 
 public class AboutActivity extends Activity
 {
-//    private Typeface ttf_dxb;
-
         @Override
         protected void onCreate(Bundle savedInstanceState)
         {

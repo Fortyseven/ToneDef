@@ -72,7 +72,6 @@ public class CountryListAdapter extends BaseAdapter
 
         int flag_drawable = getItemFlagDrawable( position );
         if ( flag_drawable > 0 ) {
-            //tv_name.setCompoundDrawablesWithIntrinsicBounds( parent.getContext().getResources().getDrawable( flag_drawable ), null, null, null );
             tv_name.setCompoundDrawablesWithIntrinsicBounds( flag_drawable, 0, 0, 0 );
         }
         tv_name.setTypeface( UICustom.getInstance().getTypeface() );

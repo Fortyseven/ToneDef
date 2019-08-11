@@ -40,8 +40,6 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
 
         setContentView( R.layout.international );
 
-        //Log.d( "BT", "OnCreate ---" );
-
         _is_dual_pane = true;
 
         // Single view UI
@@ -73,20 +71,17 @@ public class InternationalActivity extends FragmentActivity implements CountryLi
     public void onCountrySelected( int position )
     {
         if ( !_is_dual_pane ) {
-
             Intent intent = new Intent( this, ButtonActivity.class );
             intent.putExtra( ButtonsFragment.ARG_POSITION, position );
             startActivity( intent );
             return;
         }
 
-        //Log.d( "BT", "onCountrySelected --- multi; updating buttons in button fragment" );
         // multipane
         ButtonsFragment buttons_fragment = (ButtonsFragment) getSupportFragmentManager().findFragmentById( R.id.frag_buttons );
 
         if ( buttons_fragment != null ) {
             buttons_fragment.updateButtons( position );
-            return;
         }
     }
 

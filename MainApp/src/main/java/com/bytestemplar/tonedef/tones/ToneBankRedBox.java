@@ -51,8 +51,6 @@ public class ToneBankRedBox extends ToneBank
     {
         super( parent );
 
-        //name = "RedBox";
-
         addEntry( '1', new SequenceDefinition( new SequenceDefinition.Command()
         {
             @Override

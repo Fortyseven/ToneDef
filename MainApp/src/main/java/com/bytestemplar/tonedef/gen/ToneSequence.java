@@ -142,7 +142,6 @@ public class ToneSequence implements Runnable
 
         _total_samples += ( ( SAMPLE_RATE / 1000 ) * seg.duration );
         seg.bookmark = _total_samples;
-        //m_frequencies = frequencies;
         _segments.add( seg );
 
         return this;

@@ -103,7 +103,6 @@ public class DTMFActivity extends TouchPadActivity
     private void setDialString( String number )
     {
         _et_dialing_string.setText( number );
-        //clickDial( null );
     }
 
     @Override

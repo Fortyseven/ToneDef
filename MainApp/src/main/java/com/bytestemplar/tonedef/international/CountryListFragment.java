@@ -34,7 +34,6 @@ public class CountryListFragment extends ListFragment
     public void onCreate( Bundle savedInstanceState )
     {
         super.onCreate( savedInstanceState );
-        //setRetainInstance( true );
 
         CountryListAdapter foo = CountryTonesRepository.getInstance().getCountryListAdapter();
 

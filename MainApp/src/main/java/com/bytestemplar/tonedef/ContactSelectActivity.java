@@ -68,14 +68,12 @@ public class ContactSelectActivity extends ListActivity
 
         _list_adapter = new ArrayAdapter<String>( this, R.layout.single_list_item, _tels );
         setListAdapter( _list_adapter );
-        //setFinishOnTouchOutside( true );
     }
 
     @Override
     protected void onListItemClick( ListView l, View v, int position, long id )
     {
         super.onListItemClick( l, v, position, id );
-        //Log.i( "BT", "Selected pos " + position + " id " + id + " = " + _tels.get( position ) );
         returnNumber( _tels.get( position ) );
     }
 

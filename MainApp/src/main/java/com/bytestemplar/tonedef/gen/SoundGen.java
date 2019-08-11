@@ -112,7 +112,6 @@ public class SoundGen
                         @Override
                         public void onMarkerReached( AudioTrack track )
                         {
-                            //Log.e( "HSD", "Releasing track" );
                             track.release();
                         }
 
