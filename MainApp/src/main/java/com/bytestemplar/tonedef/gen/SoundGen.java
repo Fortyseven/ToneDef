@@ -51,10 +51,8 @@ public class SoundGen
                     freqgen[i] = new Sine( freqs[i] );
                 }
 
-                final int ms_size     = (int) Math.ceil( SAMPLE_RATE_IN_HZ / 1000 );
-                int
-                          buffer_size =
-                        ( ms_size ) * ( ( tone_duration + tone_delay ) * iterations ) * SAMPLE_WIDTH;
+                final int ms_size     = (int) Math.ceil( SAMPLE_RATE_IN_HZ / 1000.0 );
+                int buffer_size = ( ms_size ) * ( ( tone_duration + tone_delay ) * iterations ) * SAMPLE_WIDTH;
 
                 float[] samples = new float[buffer_size];
                 short[] buffer  = new short[buffer_size];
