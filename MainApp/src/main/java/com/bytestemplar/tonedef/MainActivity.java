@@ -63,7 +63,7 @@ public class MainActivity extends Activity
 
         // Set current version as the version last seen, so next time we won't
         // pester the user with this.
-        prefs.edit().putString( PREF_LASTVER, getString( R.string.version ) ).commit();
+        prefs.edit().putString( PREF_LASTVER, getString( R.string.version ) ).apply();
 
         startActivity( new Intent( this, AboutActivity.class ) );
     }
