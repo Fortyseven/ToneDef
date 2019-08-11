@@ -18,6 +18,7 @@ package com.bytestemplar.tonedef;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 
@@ -61,21 +62,23 @@ public class DTMFActivity extends TouchPadActivity
         String action = i.getAction();
         String type   = getIntent().getType();
 
-        if ( i == null || action == null ) {
+        if ( action == null ) {
             return;
         }
 
         /* Handle incoming v-card "contact" shares */
-        if ( action.equals( Intent.ACTION_SEND ) && type.equals( "text/x-vcard" ) ) {
+        if ( action.equals( Intent.ACTION_SEND ) && (type != null && type.equals( "text/x-vcard" )) ) {
             Intent intent = new Intent( this, ContactSelectActivity.class );
-            intent.putExtra( Intent.EXTRA_STREAM,
-                             i.getExtras().getParcelable( Intent.EXTRA_STREAM ) );
+            Parcelable extra_stream = i.getExtras().getParcelable( Intent.EXTRA_STREAM );
+            if (extra_stream != null) {
+                intent.putExtra( Intent.EXTRA_STREAM, extra_stream );
+            }
             startActivityForResult( intent, ContactSelectActivity.RESULT_CODE_CONTACT_SELECT_OK );
         }
         /* Handle incoming 'dialer' requests from tel: links */
         else if ( action.equals( Intent.ACTION_VIEW ) ) {
             String number = i.getDataString();
-            if ( number.startsWith( "tel:" ) ) {
+            if ( (number != null) && number.startsWith( "tel:" ) ) {
                 Log.i( "BT", "Received dialing request; data = " + number );
                 setDialString( number.substring( number.indexOf( ':' ) + 1 ) );
             }

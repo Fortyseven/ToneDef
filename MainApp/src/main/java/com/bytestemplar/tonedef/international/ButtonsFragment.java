@@ -51,8 +51,10 @@ public class ButtonsFragment extends Fragment
     {
         super.onViewCreated( view, savedInstanceState );
 
-        TextView tv_name = (TextView) getView().findViewById( R.id.tv_countryname );
-        tv_name.setTypeface( UICustom.getInstance().getTypeface() );
+        TextView tv_name = getView().findViewById( R.id.tv_countryname );
+        if (tv_name != null) {
+            tv_name.setTypeface( UICustom.getInstance().getTypeface() );
+        }
 
         int position = -1;
 

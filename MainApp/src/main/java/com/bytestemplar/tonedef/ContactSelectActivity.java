@@ -94,24 +94,24 @@ public class ContactSelectActivity extends ListActivity
 
     private String receiveVCard( Intent i )
     {
-        Uri             uri    = (Uri) i.getExtras().get( Intent.EXTRA_STREAM );
+        Uri uri;
         ContentResolver cr     = getContentResolver();
-        InputStream     stream = null;
-
-        try {
-            stream = cr.openInputStream( uri );
-        }
-        catch ( FileNotFoundException e ) {
-            Log.e( "BT", "Error opening vcard: " + e.getMessage() );
-        }
-
-        StringBuffer file_content = new StringBuffer( "" );
+        InputStream  stream = null;
+        StringBuffer file_content = new StringBuffer();
         int          ch;
 
         try {
-            while ( ( ch = stream.read() ) != -1 ) {
-                file_content.append( (char) ch );
+            if (i.getExtras() != null) {
+                uri = (Uri) i.getExtras().get( Intent.EXTRA_STREAM );
+                stream = cr.openInputStream( uri );
+
+                while ( ( ch = stream.read() ) != -1 ) {
+                    file_content.append( (char) ch );
+                }
             }
+        }
+        catch ( FileNotFoundException e ) {
+            Log.e( "BT", "Error opening vcard: " + e.getMessage() );
         }
         catch ( IOException e ) {
             Log.e( "BT", "Error reading vcard: " + e.getMessage() );
