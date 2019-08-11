@@ -27,12 +27,9 @@ public class USTones
     public final ToneSequence ringback;
 
     public String title = "US Telephony";
-    private final Activity parent;
 
     public USTones( Activity parent )
     {
-
-        this.parent = parent;
         busy = new ToneSequence( parent );
         busy.addSegment( 500, 480, 620 );
         busy.addSegment( 500, 0 );

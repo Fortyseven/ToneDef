@@ -34,7 +34,7 @@ public class ToneButtonList
     public ToneButtonList( Activity parent_activity )
     {
         this.parent = parent_activity;
-        buttons = new ArrayList<ButtonDefinition>();
+        buttons = new ArrayList<>();
     }
 
     /**

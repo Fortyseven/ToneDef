@@ -18,8 +18,8 @@ package com.bytestemplar.tonedef.gen;
 
 public class Sine
 {
-    float _increment;
-    float _angle;
+    private float _increment;
+    private float _angle;
 
     public Sine( int freq )
     {

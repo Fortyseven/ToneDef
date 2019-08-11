@@ -27,12 +27,9 @@ public class UKTones
     public ToneSequence _dialtone;
 
     public String _title = "UK Telephony";
-    private final Activity _parent;
 
     public UKTones( Activity parent )
     {
-
-        _parent = parent;
         _dialtone = new ToneSequence( parent );
         _dialtone.addSegment( 250, 350 );
         _dialtone.setDescription(

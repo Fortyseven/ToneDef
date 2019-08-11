@@ -38,7 +38,6 @@ public class ContactSelectActivity extends ListActivity
     public static final int RESULT_CODE_CONTACT_SELECT_OK = 1000;
 
     private List<String>         _tels;
-    private ArrayAdapter<String> _list_adapter;
 
     @Override
     protected void onCreate( Bundle savedInstanceState )
@@ -66,7 +65,7 @@ public class ContactSelectActivity extends ListActivity
 
         setContentView( R.layout.contact_select_dialog );
 
-        _list_adapter = new ArrayAdapter<String>( this, R.layout.single_list_item, _tels );
+        ArrayAdapter<String> _list_adapter = new ArrayAdapter<>( this, R.layout.single_list_item, _tels );
         setListAdapter( _list_adapter );
     }
 

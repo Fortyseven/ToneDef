@@ -25,7 +25,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
@@ -70,8 +69,6 @@ public class UICustom
             View view = root.getChildAt( c );
 
             if ( ( view instanceof LinearLayout ) ||
-                 ( view instanceof ScrollView ) ||
-                 ( view instanceof TabHost ) ||
                  ( view instanceof FrameLayout ) ) {
                 updateViewHierarchy( (ViewGroup) view );
             }
