@@ -16,8 +16,10 @@
 
 package com.bytestemplar.tonedef;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.BaseColumns;
@@ -26,14 +28,24 @@ import android.provider.ContactsContract.Contacts;
 
 import com.bytestemplar.tonedef.utils.Alert;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 public class ContactList
 {
+    public static final int PERM_CONTACT_REQUEST = 1000;
     public static final int RESULT_CODE = 1000;
 
     public static void fetch( Activity context )
     {
-        Intent i = new Intent( Intent.ACTION_PICK, Contacts.CONTENT_URI );
-        context.startActivityForResult( i, RESULT_CODE );
+        // Check if we have permission to do this; ask otherwise
+        if ( ContextCompat.checkSelfPermission( context, Manifest.permission.READ_CONTACTS ) == PackageManager.PERMISSION_GRANTED ) {
+            Intent i = new Intent( Intent.ACTION_PICK, Contacts.CONTENT_URI );
+            context.startActivityForResult( i, RESULT_CODE );
+        }
+        else {
+            ActivityCompat.requestPermissions( context, new String[]{Manifest.permission.READ_CONTACTS}, PERM_CONTACT_REQUEST );
+        }
     }
 
     public static String parseResponse( Activity context, int requestCode, int resultCode, Intent data )
