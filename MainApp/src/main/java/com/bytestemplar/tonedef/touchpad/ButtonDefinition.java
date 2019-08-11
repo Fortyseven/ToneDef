@@ -20,9 +20,9 @@ import android.view.View;
 
 public class ButtonDefinition
 {
-    private View btnView       = null;
-    private int  icon_resource = -1;
-    private char id            = 0;
+    private View btnView;
+    private int  icon_resource;
+    private char id;
 
     public ButtonDefinition( View view, int icon_resource, char id )
     {

@@ -65,7 +65,7 @@ public class ToneSequence implements Runnable
     private int _iterations;
     private int _cur_iteration;
 
-    private Activity _parent_activity = null;
+    private Activity _parent_activity;
 
     public ToneSequence( Activity activity )
     {

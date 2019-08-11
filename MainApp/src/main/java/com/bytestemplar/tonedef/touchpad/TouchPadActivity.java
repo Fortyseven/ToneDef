@@ -97,7 +97,7 @@ public abstract class TouchPadActivity extends Activity implements OnTouchListen
         setVolumeControlStream( AudioManager.STREAM_MUSIC );
         _preferences = PreferenceManager.getDefaultSharedPreferences( this );
 
-        _et_dialing_string = (EditText) findViewById( R.id.etDialingString );
+        _et_dialing_string = findViewById( R.id.etDialingString );
         _et_dialing_string.setInputType(TYPE_CLASS_TEXT);
         _buttons = new ToneButtonList( this );
     }
@@ -124,9 +124,8 @@ public abstract class TouchPadActivity extends Activity implements OnTouchListen
         }
 
         // inflate layout
-        LinearLayout content_container = (LinearLayout) findViewById( R.id.touchpad_content );
-        LayoutInflater
-                inflater =
+        LinearLayout content_container = findViewById( R.id.touchpad_content );
+        LayoutInflater inflater =
                 (LayoutInflater) getSystemService( Context.LAYOUT_INFLATER_SERVICE );
         inflater.inflate( _touchpad_layout, content_container, true );
 
@@ -141,7 +140,7 @@ public abstract class TouchPadActivity extends Activity implements OnTouchListen
 
 
         if ( disable_dialstring ) {
-            LinearLayout ll = (LinearLayout) findViewById( R.id.touchpad_dialingstring );
+            LinearLayout ll = findViewById( R.id.touchpad_dialingstring );
             ll.setVisibility( View.GONE );
         }
 

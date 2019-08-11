@@ -78,7 +78,7 @@ public class ButtonsFragment extends Fragment
 
     public void updateButtons( int position )
     {
-        LinearLayout ll_btn_container = (LinearLayout) getView().findViewById( R.id.buttons_container );
+        LinearLayout ll_btn_container = getView().findViewById( R.id.buttons_container );
 
         if ( ll_btn_container != null ) {
 
@@ -88,7 +88,7 @@ public class ButtonsFragment extends Fragment
             ll_btn_container.removeAllViewsInLayout();
 
             // Update label
-            TextView tv_name = (TextView) getView().findViewById( R.id.tv_countryname );
+            TextView tv_name = getView().findViewById( R.id.tv_countryname );
             tv_name.setText( current_tones.getName() );
             tv_name.setTypeface( UICustom.getInstance().getTypeface() );
             if ( current_tones.getFlagDrawable() > 0 ) {

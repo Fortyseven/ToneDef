@@ -54,7 +54,7 @@ public class UICustom
 
     public void updateActivity( Activity act )
     {
-        ViewGroup root = ( (ViewGroup) act.findViewById( android.R.id.content ) );
+        ViewGroup root = act.findViewById( android.R.id.content );
 
         updateViewHierarchy( root );
     }
@@ -87,9 +87,6 @@ public class UICustom
         }
         else if ( btn instanceof TextView ) {
             ( (TextView) ( btn ) ).setTypeface( _font );
-        }
-        else if ( btn instanceof Button ) {
-            ( (Button) ( btn ) ).setTypeface( _font );
         }
     }
 }

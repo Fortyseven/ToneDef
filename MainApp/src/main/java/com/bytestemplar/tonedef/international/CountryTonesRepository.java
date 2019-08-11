@@ -23,8 +23,8 @@ import java.util.ArrayList;
 
 public class CountryTonesRepository
 {
-    private static CountryTonesRepository instance       = null;
-    private        Activity               _ownerActivity = null;
+    private static CountryTonesRepository instance = null;
+    private Activity _ownerActivity;
     private ArrayList<CountryTones> _country_tones;
     private CountryListAdapter      _country_list_adapter;
 

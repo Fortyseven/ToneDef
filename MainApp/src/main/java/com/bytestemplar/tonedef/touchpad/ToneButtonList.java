@@ -24,7 +24,7 @@ import java.util.ArrayList;
  */
 public class ToneButtonList
 {
-    public ArrayList<ButtonDefinition> buttons = null;
+    public ArrayList<ButtonDefinition> buttons;
     private final Activity parent;
 
     /**

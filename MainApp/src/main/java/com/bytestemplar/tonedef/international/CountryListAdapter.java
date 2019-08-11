@@ -67,7 +67,7 @@ public class CountryListAdapter extends BaseAdapter
             convertView = inflater.inflate( R.layout.countrylist_item, parent, false );
         }
 
-        TextView tv_name = (TextView) convertView.findViewById( R.id.country_name );
+        TextView tv_name = convertView.findViewById( R.id.country_name );
         tv_name.setText( country_name );
 
         int flag_drawable = getItemFlagDrawable( position );
