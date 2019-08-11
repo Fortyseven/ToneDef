@@ -48,6 +48,7 @@ public class ContactList
         }
     }
 
+
     public static String parseResponse( Activity context, int requestCode, int resultCode, Intent data )
     {
         String result = null;
