@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ToneDef</string>
-    <string name="version">Release 19</string>
+    <string name="version">Release 20</string>
     <string name="about_whatsnew">What\'s New?</string>
     <string name="about_whatsnew_text">
+        - Fixed theme issues causing config dialog rendering problems (Good catch, @tacarrie!)\n\n
+        PREVIOUSLY:\n\n
         - Cleaned up some of the code\n
         - Improved accuracy of one-shot sounds\n
         - Added better error checking for some operations\n
-        - Implements modern Android permission requests\n\n
-        PREVIOUSLY:\n\n
+        - Implements modern Android permission requests\n
         - Changes to appease the Play Store\n
         - Tone playback is now more stable on long presses. (Thanks, tildearrow!)\n
         - Sequence dialing now parses extended DTMF; no longer forces digits-only input. (Thanks, Tomino2112!)\n\n
