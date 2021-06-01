@@ -22,6 +22,7 @@ import com.bytestemplar.tonedef.gen.ToneSequence;
 
 public class OtherTones
 {
+    public ToneSequence _fr_dialtone;
     public ToneSequence _jp_dialtone;
     public ToneSequence _jp_ringback;
     public ToneSequence _it_ringback;
@@ -33,6 +34,8 @@ public class OtherTones
 
     private final int DE_DIALTONE_FREQ = 425;
     private final int DE_RINGBACK_FREQ = 425;
+
+    private final int DE_DIALTONE_FREQ = 440;
 
     private final int ITALY_FREQ = 425;
 
@@ -55,6 +58,11 @@ public class OtherTones
         _de_dialtone = new ToneSequence( parent );
         _de_dialtone.addSegment( 250, DE_DIALTONE_FREQ );
         _de_dialtone.setDescription( DIALTONE_DESC );
+
+        /* FRANCE */
+        _fr_dialtone = new ToneSequence( parent );
+        _fr_dialtone.addSegment( 250, FR_DIALTONE_FREQ );
+        _fr_dialtone.setDescription( DIALTONE_DESC );
 
         /* JAPAN */
         _jp_dialtone = new ToneSequence( parent );

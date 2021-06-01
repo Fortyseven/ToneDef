@@ -71,6 +71,7 @@ public class CountryTonesRepository
     {
         _country_tones = new ArrayList<>();
 
+        _country_tones.add( buildTonesFrance() );
         _country_tones.add( buildTonesGermany() );
         _country_tones.add( buildTonesItaly() );
         _country_tones.add( buildTonesJapan() );
@@ -387,6 +388,92 @@ public class CountryTonesRepository
 
         country.setFlagDrawable( R.drawable.flag_italy );
 
+        return country;
+    }
+
+
+    /******************************************************************/
+    // France
+    // Specification: https://www.orange.com/sites/orangecom/files/documents/2020-06/STI03-ed4_0505.pdf
+
+    private final int FR_FREQ_440 = 440;
+    private final int FR_FREQ_330 = 330;
+    private final int FR_BUSY_ROC_FREQ1 = 494;
+    private final int FR_BUSY_ROC_FREQ2 = 554;
+    private final int FR_BUSY_ROC_FREQ3 = 659;
+    private final int FR_BUSY_ROC_FREQ4 = 738;
+    private final int FR_SIT_FREQ1 = 950;
+    private final int FR_SIT_FREQ2 = 1400;
+    private final int FR_SIT_FREQ3 = 1800;
+
+    private CountryTones buildTonesFrance()
+    {
+        CountryTones country = new CountryTones( _ownerActivity.getString( R.string.country_france ) );
+
+        ToneSequence ts = new ToneSequence( _ownerActivity );
+        ts.addSegment( 250, FR_FREQ_440 )
+          .setDescription( _ownerActivity.getString( R.string.desc_dialtone ) );
+
+        country.addSequence( _ownerActivity.getString( R.string.dialtone ), ts );
+
+        ToneSequence ts = new ToneSequence( _ownerActivity );
+        ts.addSegment( 250, FR_FREQ_330, FR_FREQ_440 )
+          .setDescription( _ownerActivity.getString( R.string.desc_dialtone_sac ) );
+
+        country.addSequence( _ownerActivity.getString( R.string.dialtone_sac ), ts );
+
+        ToneSequence ts = new ToneSequence( _ownerActivity );
+        ts.addSegment(  50, FR_FREQ_330, FR_FREQ_440 )
+          .addSegment( 150, FR_FREQ_440 )
+          .addSegment(  50, FR_FREQ_330, FR_FREQ_440 )
+          .addSegment( 300, FR_FREQ_440 )
+          .setDescription( _ownerActivity.getString( R.string.desc_dialtone_mwi ) );
+
+        country.addSequence( _ownerActivity.getString( R.string.dialtone_mwi ), ts );
+
+        ts = new ToneSequence( _ownerActivity );
+        ts.addSegment( 1500, FR_FREQ_440 )
+          .addSegment( 3500, 0 )
+          .setDescription( _ownerActivity.getString( R.string.desc_ringback ) );
+
+        country.addSequence( _ownerActivity.getString( R.string.ringback ), ts );
+
+        ts = new ToneSequence( _ownerActivity );
+        ts.addSegment( 500, FR_FREQ_440 )
+          .addSegment( 500, 0 )
+          .setDescription( "" );
+
+        country.addSequence( _ownerActivity.getString( R.string.busy ), ts );
+
+        ts = new ToneSequence( _ownerActivity );
+        ts.addSegment( 500, FR_FREQ_440, FR_BUSY_ROC_FREQ2 )
+          .addSegment( 500, 0 )
+          .addSegment( 500, FR_FREQ_440, FR_BUSY_ROC_FREQ4 )
+          .addSegment( 500, 0 )
+          .addSegment( 500, FR_FREQ_440, FR_BUSY_ROC_FREQ3 )
+          .addSegment( 500, 0 )
+          .addSegment( 500, FR_FREQ_440, FR_BUSY_ROC_FREQ2 )
+          .addSegment( 500, 0 )
+          .addSegment( 500, FR_FREQ_440, FR_BUSY_ROC_FREQ1 )
+          .addSegment( 500, 0 )
+          .addSegment( 500, FR_FREQ_440, FR_BUSY_ROC_FREQ2 )
+          .addSegment( 60000, 0 )
+          .setDescription( R.string.desc_busy_roc );
+
+        country.addSequence( _ownerActivity.getString( R.string.busy_roc ), ts );
+
+        ts = new ToneSequence( _ownerActivity );
+        ts.addSegment( 300, FR_SIT_FREQ1 )
+          .addSegment( 30, 0 )
+          .addSegment( 300, FR_SIT_FREQ2 )
+          .addSegment( 30, 0 )
+          .addSegment( 500, FR_SIT_FREQ3 )
+          .addSegment( 1000, 0 )
+          .setDescription( "" );
+
+        country.addSequence( _ownerActivity.getString( R.string.special_information), ts );
+
+        country.setFlagDrawable( R.drawable.flag_france );
         return country;
     }
 }
