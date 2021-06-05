@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -69,8 +71,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/about_knownissues_text" />
+
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/btnNetwork47"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:scaleType="centerInside"
+            android:onClick="clickNetwork47"
+            android:src="@drawable/network47" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -81,6 +99,7 @@
             android:id="@+id/btnGitHub"
             android:layout_width="0dp"
             android:layout_height="60dp"
+            android:layout_margin="5dp"
             android:layout_weight="1"
             android:drawableLeft="@drawable/github"
             android:drawableStart="@drawable/github"
@@ -92,6 +111,7 @@
             android:id="@+id/OK"
             android:layout_width="0dp"
             android:layout_height="60dp"
+            android:layout_margin="5dp"
             android:layout_weight="1"
             android:onClick="clickClose"
             android:text="@string/close"

@@ -35,6 +35,11 @@ public class AboutActivity extends Activity
                 UICustom.getInstance().updateActivity(this);
         }
 
+        public void clickNetwork47(View view)
+        {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://Network47.xyz/")));
+        }
+
         public void clickGitHub(View view)
         {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Fortyseven/ToneDef")));
