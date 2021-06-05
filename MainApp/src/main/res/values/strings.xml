@@ -4,15 +4,10 @@
     <string name="version">Release 20</string>
     <string name="about_whatsnew">What\'s New?</string>
     <string name="about_whatsnew_text">
-        - Fixed theme issues causing config dialog rendering problems (Good catch, @tacarrie!)\n\n
-        PREVIOUSLY:\n\n
-        - Cleaned up some of the code\n
-        - Improved accuracy of one-shot sounds\n
-        - Added better error checking for some operations\n
-        - Implements modern Android permission requests\n
-        - Changes to appease the Play Store\n
-        - Tone playback is now more stable on long presses. (Thanks, tildearrow!)\n
-        - Sequence dialing now parses extended DTMF; no longer forces digits-only input. (Thanks, Tomino2112!)\n\n
+        - If you are reading this, you have survived 2020. 😎 Now make sure you get vaccinated! 💉\n\n
+        - Added French tones to the \'extras\' section\n\n
+        - Added link back to my blog (as seen below)\n\n
+        - Code cleanup, and other behind the scenes updates
     </string>
     <string name="about_knownissues">Known Issues</string>
         <string name="about_knownissues_text">
