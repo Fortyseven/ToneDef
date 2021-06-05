@@ -102,7 +102,6 @@
             android:onClick="clickGitHub"
             android:scaleType="centerInside"
             android:src="@drawable/github"
-            android:text="@string/github_forkme"
             android:textSize="10dp" />
 
         <ImageButton
