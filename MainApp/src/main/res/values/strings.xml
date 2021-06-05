@@ -19,7 +19,6 @@
             - Playback on older/lower-spec devices (HTC Hero, G1, etc) is sketchy.\n\n
             - Slight \'clicking\' sound audible between tone and silence on some devices; possible fix forthcoming.
         </string>
-    <string name="skrillex">CORE</string>
     <string name="no_contact">No phone number associated with contact.</string>
     <string name="menu_contactlist">Use Contact Number</string>
     <string name="menu_config">Settings</string>
@@ -38,13 +37,6 @@
     <string name="dialing_string_hint">Phone #</string>
     <string name="dialing_string_wait_msg">Tap whenever you\'re ready…</string>
     <string name="close">X</string>
-    <string name="other_dialtone_de">Dialtone [DE]</string>
-    <string name="other_dialtone_fr">Dialtone [FR]</string>
-    <string name="other_dialtone_jp">Dialtone [JP]</string>
-    <string name="other_ringback_jp">Ringback [JP]</string>
-    <string name="other_ringback_it">Ringback [IT]</string>
-    <string name="other_dialtone_it">Dialtone [IT]</string>
-    <string name="store_review_begging">If you like ToneDef, why not help me out and leave a rating on the Android Market (or your favorite app store)? :)</string>
     <string name="OK">OK</string>
     <string name="dial_button">Dial</string>
     <string name="redbox_25cents">25c</string>
@@ -57,7 +49,6 @@
     <string name="desc_ringboxtones">Red Box Tones</string>
     <string name="desc_blueboxdialpad">Blue Box Dial Pad</string>
     <string name="desc_dtmf_dialpad">DTMF Dial Pad</string>
-    <string name="github_forkme">Fork!</string>
     <string name="country_usa">USA</string>
     <string name="country_france">France</string>
     <string name="country_germany">Germany</string>
