@@ -37,7 +37,7 @@
     <string name="about">ABOUT</string>
     <string name="dialing_string_hint">Phone #</string>
     <string name="dialing_string_wait_msg">Tap whenever you\'re ready…</string>
-    <string name="close">Close</string>
+    <string name="close">X</string>
     <string name="other_dialtone_de">Dialtone [DE]</string>
     <string name="other_dialtone_fr">Dialtone [FR]</string>
     <string name="other_dialtone_jp">Dialtone [JP]</string>
@@ -57,7 +57,7 @@
     <string name="desc_ringboxtones">Red Box Tones</string>
     <string name="desc_blueboxdialpad">Blue Box Dial Pad</string>
     <string name="desc_dtmf_dialpad">DTMF Dial Pad</string>
-    <string name="github_forkme">Fork Me!</string>
+    <string name="github_forkme">Fork!</string>
     <string name="country_usa">USA</string>
     <string name="country_france">France</string>
     <string name="country_germany">Germany</string>

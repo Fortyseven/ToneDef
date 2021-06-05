@@ -4,13 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <ScrollView
         android:id="@+id/top"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:overScrollMode="always"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarDefaultDelayBeforeFade="999999"
+        android:scrollbarStyle="insideOverlay"
+        android:scrollbars="vertical"
+        >
 
         <LinearLayout
             android:id="@+id/aboutlayout"
@@ -44,8 +52,8 @@
                 style="@android:style/TextAppearance.Large"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:gravity="center_horizontal"
                 android:text="@string/about_whatsnew"
                 android:textStyle="bold" />
@@ -54,14 +62,16 @@
                 style="@android:style/TextAppearance.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fadeScrollbars="true"
+                android:lineSpacingExtra="4sp"
                 android:text="@string/about_whatsnew_text" />
 
             <TextView
                 style="@android:style/TextAppearance.Large"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:gravity="center_horizontal"
                 android:text="@string/about_knownissues"
                 android:textStyle="bold" />
@@ -70,6 +80,7 @@
                 style="@android:style/TextAppearance.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:lineSpacingExtra="4sp"
                 android:text="@string/about_knownissues_text" />
 
         </LinearLayout>
@@ -77,44 +88,43 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="128dp"
-        android:orientation="vertical">
+        android:layout_height="65dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
 
         <ImageButton
-            android:id="@+id/btnNetwork47"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:scaleType="centerInside"
-            android:onClick="clickNetwork47"
-            android:src="@drawable/network47" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
+            android:contentDescription="Fork me on GitHub!"
             android:id="@+id/btnGitHub"
             android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_margin="5dp"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
             android:layout_weight="1"
-            android:drawableLeft="@drawable/github"
-            android:drawableStart="@drawable/github"
             android:onClick="clickGitHub"
+            android:scaleType="centerInside"
+            android:src="@drawable/github"
             android:text="@string/github_forkme"
-            android:textSize="12sp"/>
+            android:textSize="10dp" />
+
+        <ImageButton
+            android:contentDescription="Visit Network 47!"
+            android:id="@+id/btnNetwork47"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:onClick="clickNetwork47"
+            android:scaleType="centerInside"
+            android:src="@drawable/network47" />
 
         <Button
+            android:contentDescription="Close About screen"
             android:id="@+id/OK"
             android:layout_width="0dp"
             android:layout_height="60dp"
-            android:layout_margin="5dp"
+            android:layout_margin="3dp"
             android:layout_weight="1"
             android:onClick="clickClose"
             android:text="@string/close"
-            android:textSize="12sp"/>
+            android:textSize="20sp" />
     </LinearLayout>
 </LinearLayout>
