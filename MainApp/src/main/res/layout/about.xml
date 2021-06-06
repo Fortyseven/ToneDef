@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <ScrollView
         android:id="@+id/top"
@@ -17,8 +16,7 @@
         android:scrollbarAlwaysDrawVerticalTrack="true"
         android:scrollbarDefaultDelayBeforeFade="999999"
         android:scrollbarStyle="insideOverlay"
-        android:scrollbars="vertical"
-        >
+        android:scrollbars="vertical">
 
         <LinearLayout
             android:id="@+id/aboutlayout"
@@ -32,12 +30,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:shadowColor="#FF00FF"
-                android:shadowDx="1"
-                android:shadowDy="1"
+                android:shadowColor="#000000"
+                android:shadowDx="2"
+                android:shadowDy="2"
                 android:shadowRadius="2"
                 android:text="@string/app_name"
-                android:textSize="35sp"
+                android:textColor="#FFBB00"
+                android:textSize="35dp"
                 android:textStyle="bold"
                 android:typeface="monospace" />
 
@@ -46,7 +45,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="@string/version"
-                android:textSize="18sp" />
+                android:textColor="#00bbFF"
+                android:textSize="18dp" />
 
             <TextView
                 style="@android:style/TextAppearance.Large"
@@ -92,38 +92,39 @@
         android:orientation="horizontal"
         android:weightSum="3">
 
-        <ImageButton
-            android:contentDescription="Fork me on GitHub!"
-            android:id="@+id/btnGitHub"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="3dp"
-            android:layout_weight="1"
-            android:onClick="clickGitHub"
-            android:scaleType="centerInside"
-            android:src="@drawable/github"
-            android:textSize="10dp" />
-
-        <ImageButton
-            android:contentDescription="Visit Network 47!"
-            android:id="@+id/btnNetwork47"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="3dp"
-            android:layout_weight="1"
-            android:onClick="clickNetwork47"
-            android:scaleType="centerInside"
-            android:src="@drawable/network47" />
-
         <Button
-            android:contentDescription="Close About screen"
             android:id="@+id/OK"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_margin="3dp"
             android:layout_weight="1"
+            android:contentDescription="Close About screen"
             android:onClick="clickClose"
             android:text="@string/close"
             android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/btnNetwork47"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:contentDescription="Visit Network 47!"
+            android:onClick="clickNetwork47"
+            android:scaleType="centerInside"
+            android:src="@drawable/network47" />
+
+        <ImageButton
+            android:id="@+id/btnGitHub"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:contentDescription="Fork me on GitHub!"
+            android:onClick="clickGitHub"
+            android:scaleType="centerInside"
+            android:src="@drawable/github"
+            android:textSize="10dp" />
+
     </LinearLayout>
 </LinearLayout>

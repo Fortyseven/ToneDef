@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ToneDef</string>
-    <string name="version">Release 20</string>
+    <string name="version">Release 21</string>
     <string name="about_whatsnew">What\'s New?</string>
     <string name="about_whatsnew_text">
-        - If you are reading this, you have survived 2020. 😎 Now make sure you get vaccinated! 💉\n\n
+        If you are reading this, you have survived 2020. 😎\n\n
+        Pour one out for those who didn\'t make it...🍺\n\n
+        Now make sure you get vaccinated! 💉\n\n
         - Added French tones to the \'extras\' section\n\n
         - Added link back to my blog (as seen below)\n\n
         - Code cleanup, and other behind the scenes updates
