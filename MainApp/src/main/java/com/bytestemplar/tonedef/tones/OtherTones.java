@@ -32,10 +32,12 @@ public class OtherTones
 
     public String _title = "Other Telephony";
 
+    // https://www.itu.int/ITU-T/inr/forms/files/tones-0203.pdf
+
     private final int DE_DIALTONE_FREQ = 425;
     private final int DE_RINGBACK_FREQ = 425;
 
-    private final int DE_DIALTONE_FREQ = 440;
+    private final int FR_DIALTONE_FREQ = 440;
 
     private final int ITALY_FREQ = 425;
 
