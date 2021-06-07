@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="3"
+            android:layout_margin="3dp"
             android:contentDescription="@string/desc_dtmf_dialpad"
             android:onClick="clickDTMF"
             android:scaleType="fitCenter"
@@ -29,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="3"
+            android:layout_margin="3dp"
             android:contentDescription="@string/desc_blueboxdialpad"
             android:onClick="clickBluebox"
             android:scaleType="fitCenter"
@@ -39,6 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="3"
+            android:layout_margin="3dp"
             android:contentDescription="@string/desc_ringboxtones"
             android:onClick="clickRedbox"
             android:scaleType="fitCenter"
@@ -56,6 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="3"
+            android:layout_margin="3dp"
             android:onClick="clickAbout"
             android:text="@string/about"
             android:textSize="15sp" />
@@ -65,6 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="3"
+            android:layout_margin="3dp"
             android:onClick="clickExtras"
             android:text="@string/extras"
             android:textSize="15sp" />
@@ -74,6 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="3"
+            android:layout_margin="3dp"
             android:onClick="clickConfig"
             android:text="@string/settings"
             android:textSize="15sp" />

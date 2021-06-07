@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ToneDef</string>
-    <string name="version">Release 20</string>
+    <string name="version">Release 21</string>
     <string name="about_whatsnew">What\'s New?</string>
     <string name="about_whatsnew_text">
-        - Fixed theme issues causing config dialog rendering problems (Good catch, @tacarrie!)\n\n
-        PREVIOUSLY:\n\n
-        - Cleaned up some of the code\n
-        - Improved accuracy of one-shot sounds\n
-        - Added better error checking for some operations\n
-        - Implements modern Android permission requests\n
-        - Changes to appease the Play Store\n
-        - Tone playback is now more stable on long presses. (Thanks, tildearrow!)\n
-        - Sequence dialing now parses extended DTMF; no longer forces digits-only input. (Thanks, Tomino2112!)\n\n
+If you are reading this, you have survived 2020. 😎
+\n\nPour one out for those who didn\'t make it…🍺
+\n\nNow make sure you get vaccinated! 💉
+\n\n✅ Added French tones to the \'extras\' section
+\n\n✅ Added link back to my blog (as seen below)
+\n\n✅ Minor layout updates, including removing action bar from most screens (will remove the rest later)
+\n\n✅ Code cleanup, refactoring, and other behind the scenes updates
     </string>
     <string name="about_knownissues">Known Issues</string>
-        <string name="about_knownissues_text">
-            - Playback on older/lower-spec devices (HTC Hero, G1, etc) is sketchy.\n\n
-            - Slight \'clicking\' sound audible between tone and silence on some devices; possible fix forthcoming.
-        </string>
-    <string name="skrillex">CORE</string>
+    <string name="about_knownissues_text">
+    ❌ Head to the GitHub repo Issues page for a current list. (This section will be removed in 22 rather than keep updating it.)
+    </string>
     <string name="no_contact">No phone number associated with contact.</string>
     <string name="menu_contactlist">Use Contact Number</string>
     <string name="menu_config">Settings</string>
@@ -37,13 +33,7 @@
     <string name="about">ABOUT</string>
     <string name="dialing_string_hint">Phone #</string>
     <string name="dialing_string_wait_msg">Tap whenever you\'re ready…</string>
-    <string name="close">Close</string>
-    <string name="other_dialtone_de">Dialtone [DE]</string>
-    <string name="other_dialtone_jp">Dialtone [JP]</string>
-    <string name="other_ringback_jp">Ringback [JP]</string>
-    <string name="other_ringback_it">Ringback [IT]</string>
-    <string name="other_dialtone_it">Dialtone [IT]</string>
-    <string name="store_review_begging">If you like ToneDef, why not help me out and leave a rating on the Android Market (or your favorite app store)? :)</string>
+    <string name="close">X</string>
     <string name="OK">OK</string>
     <string name="dial_button">Dial</string>
     <string name="redbox_25cents">25c</string>
@@ -56,8 +46,8 @@
     <string name="desc_ringboxtones">Red Box Tones</string>
     <string name="desc_blueboxdialpad">Blue Box Dial Pad</string>
     <string name="desc_dtmf_dialpad">DTMF Dial Pad</string>
-    <string name="github_forkme">Fork Me!</string>
-    <string name="country_usa">USA</string>
+    <string name="country_usa">United States</string>
+    <string name="country_france">France</string>
     <string name="country_germany">Germany</string>
     <string name="country_japan">Japan</string>
     <string name="country_italy">Italy</string>
@@ -71,7 +61,7 @@
     <string name="off_hook">Off Hook</string>
     <string name="recall_tone">Recall Tone</string>
     <string name="desc_ringback">A ringback tone is an audible indication that is heard on the telephone line by the caller while the phone they are calling is being rung. It is normally a repeated tone, designed to assure the calling party that the called party\'s line is ringing, although the ring-back tone may be out of sync with the ringing signal.</string>
-    <string name="country_uk">UK</string>
+    <string name="country_uk">United Kingdom</string>
     <string name="confirmation">Confirmation</string>
     <string name="call_waiting">Call Waiting</string>
     <string name="congestion">Congestion</string>
@@ -87,4 +77,10 @@
     <string name="record">Record</string>
     <string name="warning">Warning</string>
     <string name="contactreceiver_select_a_numer">Select a Number</string>
+    <string name="busy_roc">Automatic Callback on Busy Tone</string>
+    <string name="desc_busy_roc">An automatic callback on busy tone is an audible indication that the called party is currently busy, but they have enabled the automatic callback after hangup feature. If the calling party confirms their choice to be called back (by pressing a specific key), the callee phone will ring once they hangup, and the caller will then be called back.</string>
+    <string name="dialtone_sac">Dial Tone - Send All Calls reminder</string>
+    <string name="desc_dialtone_sac">This dial tone signal is used to indicate to warn the user the Send All Calls function is still enabled on this phone line.</string>
+    <string name="dialtone_mwi">Dial Tone - Message Waiting</string>
+    <string name="desc_dialtone_mwi">This dial tone signal is used to indicate that an unread message is waiting in the voicemail.</string>
 </resources>

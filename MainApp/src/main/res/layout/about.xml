@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -7,8 +9,14 @@
     <ScrollView
         android:id="@+id/top"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:overScrollMode="always"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarDefaultDelayBeforeFade="999999"
+        android:scrollbarStyle="insideOverlay"
+        android:scrollbars="vertical">
 
         <LinearLayout
             android:id="@+id/aboutlayout"
@@ -22,12 +30,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:shadowColor="#FF00FF"
-                android:shadowDx="1"
-                android:shadowDy="1"
+                android:shadowColor="#000000"
+                android:shadowDx="2"
+                android:shadowDy="2"
                 android:shadowRadius="2"
                 android:text="@string/app_name"
-                android:textSize="35sp"
+                android:textColor="#FFBB00"
+                android:textSize="35dp"
                 android:textStyle="bold"
                 android:typeface="monospace" />
 
@@ -36,14 +45,15 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="@string/version"
-                android:textSize="18sp" />
+                android:textColor="#00bbFF"
+                android:textSize="18dp" />
 
             <TextView
                 style="@android:style/TextAppearance.Large"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:gravity="center_horizontal"
                 android:text="@string/about_whatsnew"
                 android:textStyle="bold" />
@@ -52,14 +62,16 @@
                 style="@android:style/TextAppearance.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fadeScrollbars="true"
+                android:lineSpacingExtra="4sp"
                 android:text="@string/about_whatsnew_text" />
 
             <TextView
                 style="@android:style/TextAppearance.Large"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:gravity="center_horizontal"
                 android:text="@string/about_knownissues"
                 android:textStyle="bold" />
@@ -68,33 +80,51 @@
                 style="@android:style/TextAppearance.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:lineSpacingExtra="4sp"
                 android:text="@string/about_knownissues_text" />
+
         </LinearLayout>
     </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnGitHub"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_weight="1"
-            android:drawableLeft="@drawable/github"
-            android:drawableStart="@drawable/github"
-            android:onClick="clickGitHub"
-            android:text="@string/github_forkme"
-            android:textSize="12sp"/>
+        android:layout_height="65dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
 
         <Button
             android:id="@+id/OK"
             android:layout_width="0dp"
             android:layout_height="60dp"
+            android:layout_margin="3dp"
             android:layout_weight="1"
+            android:contentDescription="Close About screen"
             android:onClick="clickClose"
             android:text="@string/close"
-            android:textSize="12sp"/>
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/btnNetwork47"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:contentDescription="Visit Network 47!"
+            android:onClick="clickNetwork47"
+            android:scaleType="centerInside"
+            android:src="@drawable/network47" />
+
+        <ImageButton
+            android:id="@+id/btnGitHub"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:contentDescription="Fork me on GitHub!"
+            android:onClick="clickGitHub"
+            android:scaleType="centerInside"
+            android:src="@drawable/github"
+            android:textSize="10dp" />
+
     </LinearLayout>
 </LinearLayout>
