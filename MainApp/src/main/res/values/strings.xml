@@ -14,8 +14,7 @@ If you are reading this, you have survived 2020. 😎
     </string>
     <string name="about_knownissues">Known Issues</string>
     <string name="about_knownissues_text">
-❌ Playback on older/lower-spec devices (HTC Hero, G1, etc) is sketchy.
-\n\n❌ Slight \'clicking\' sound audible between tone and silence on some devices; possible fix forthcoming (no, seriously -- it\'s ticket #27, just opened!)
+    ❌ Head to the GitHub repo Issues page for a current list. (This section will be removed in 22 rather than keep updating it.)
     </string>
     <string name="no_contact">No phone number associated with contact.</string>
     <string name="menu_contactlist">Use Contact Number</string>
