@@ -19,7 +19,7 @@ import com.bytestemplar.tonedef.gen.ToneSequence;
 
 import java.util.HashMap;
 
-class CountryTones
+public class CountryTones
 {
     private String                        _name;
     private HashMap<String, ToneSequence> _sequences;
